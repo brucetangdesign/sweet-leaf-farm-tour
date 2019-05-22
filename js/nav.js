@@ -15,23 +15,17 @@ $( document ).ready(function() {
     //if($(window).width() < 768){
       if($(window).scrollTop() > 20){
         if(!scrolled){
-          console.log("dd");
           $header.addClass("scrolled");
           scrolled = true;
+          TweenMax.from($header.find(".logo-container"),0.3,{opacity: 0,delay: 0.1});
         }
       }
       else{
         if(scrolled){
           $header.removeClass("scrolled");
           scrolled = false;
+          TweenMax.from($header.find(".logo-container"),0.3,{opacity: 0, delay: 0.1});
         }
       }
-    /*}
-    else{
-      scrolled = false;
-      if($("header").hasClass("scrolled")){
-        $("header").removeClass("scrolled");
-      }
-    }*/
   }
 });

@@ -35,10 +35,10 @@ html {
 html, body {
   margin: 0;
   padding: 0;
-  color: #401f1f;
+  color: #370000;
   font-family: "Vision Heavy";
   font-size: 16px;
-  background-color: #f9ec7a;
+  background-color: #f89828;
 }
 @media (max-width: 768px) {
   html, body {
@@ -57,92 +57,53 @@ h1, h2, h3, h4, h5 {
 
 h1 {
   font-family: "Farao Black";
-  font-size: 3rem;
+  font-size: 4.25rem;
   line-height: 1.15;
   margin: 1rem 0;
 }
 @media (max-width: 1280px) {
   h1 {
-    font-size: 2.5625rem;
+    font-size: 3.625rem;
   }
 }
 @media (max-width: 1020px) {
   h1 {
-    font-size: 2.1875rem;
+    font-size: 3.0625rem;
     margin: 0.75rem 0;
   }
 }
 @media (max-width: 768px) {
   h1 {
-    font-size: 1.875rem;
+    font-size: 2.5625rem;
     margin: 0.5rem 0;
   }
 }
 @media (max-width: 480px) {
   h1 {
-    font-size: 1.625rem;
+    font-size: 1.875rem;
     margin: 0.5rem 0;
-  }
-}
-h1.h1-sans {
-  font-family: "Vision Black";
-  font-size: 5rem;
-  color: #d0202f;
-  text-transform: uppercase;
-  line-height: 0.81;
-  letter-spacing: -8px;
-}
-h1.h1-sans .larger-line {
-  display: block;
-  font-size: 5.625rem;
-}
-@media (max-width: 1280px) {
-  h1.h1-sans {
-    font-size: 4.25rem;
-    letter-spacing: -6.8px;
-  }
-  h1.h1-sans .larger-line {
-    font-size: 4.8125rem;
-  }
-}
-@media (max-width: 1020px) {
-  h1.h1-sans {
-    font-size: 3.625rem;
-    letter-spacing: -5.8px;
-  }
-  h1.h1-sans .larger-line {
-    font-size: 4.125rem;
-  }
-}
-@media (max-width: 768px) {
-  h1.h1-sans {
-    font-size: 3.125rem;
-    letter-spacing: -5px;
-  }
-  h1.h1-sans .larger-line {
-    font-size: 3.5rem;
   }
 }
 
 h2 {
   font-family: "Farao Black";
-  font-size: 3.125rem;
+  font-size: 3rem;
   line-height: 1.05;
   letter-spacing: 2px;
 }
 @media (max-width: 1280px) {
   h2 {
-    font-size: 2.625rem;
+    font-size: 2.5rem;
   }
 }
 @media (max-width: 1020px) {
   h2 {
-    font-size: 2.1875rem;
+    font-size: 2.0625rem;
   }
 }
 @media (max-width: 768px) {
   h2 {
-    font-size: 1.875rem;
+    font-size: 1.625rem;
   }
 }
 
@@ -319,64 +280,27 @@ header.scrolled:before {
 
 .logo-container {
   position: relative;
-  width: 243px;
 }
 .logo-container img {
   position: relative;
   z-index: 2;
   width: 100%;
 }
-.logo-container:after {
-  content: "";
-  position: absolute;
-  z-index: 1;
-  background-image: url("../images/logo-bg-gradient.svg");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  left: 50%;
-  top: 53%;
-  width: 154%;
-  height: 256%;
-  transform: translateX(-50%) translateY(-50%);
-  -webkit-transform: translateX(-50%) translateY(-50%);
-}
-.logo-container .mobile-logo {
-  opacity: 0;
-  position: absolute;
-  width: 84px;
-  height: 45px;
-}
-.scrolled .logo-container .mobile-logo {
-  opacity: 1;
-  position: relative;
-  transition: opacity 300ms;
-  -webkit-transition: opacity 300ms;
-}
 .logo-container .desktop-logo {
+  width: 242px;
   opacity: 1;
 }
 .scrolled .logo-container .desktop-logo {
-  opacity: 0;
-  position: absolute;
-}
-.scrolled .logo-container {
-  width: 84px;
-}
-.scrolled .logo-container:after {
-  display: none;
+  width: 84px !important;
 }
 @media (max-width: 768px) {
-  .logo-container {
+  .logo-container .desktop-logo {
     width: 146px;
   }
 }
 @media (max-width: 480px) {
-  .logo-container {
+  .logo-container .desktop-logo {
     width: 120px;
-  }
-  .scrolled .logo-container {
-    width: 84px;
   }
 }
 
@@ -433,62 +357,6 @@ nav a.selected {
   color: #FFFFFF;
 }
 
-.usda-badge {
-  position: absolute;
-  z-index: 3000;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 22px;
-  top: 100%;
-  width: 5rem;
-  height: 5rem;
-  background-image: url("../images/usda-badge.svg");
-  background-position: center;
-  background-size: contain;
-}
-@media (max-width: 1188px) {
-  .usda-badge {
-    width: 4.0625rem;
-    height: 4.0625rem;
-    margin-top: 13px;
-  }
-}
-@media (max-width: 768px) {
-  .usda-badge {
-    width: 3.125rem;
-    height: 3.125rem;
-    margin-top: 8px;
-  }
-}
-.scrolled .usda-badge {
-  opacity: 0;
-  position: absolute;
-}
-
-.usda-badge-mobile {
-  opacity: 0;
-  position: absolute;
-  z-index: 3000;
-  left: 100%;
-  margin-left: 13px;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
-  background-image: url("../images/usda-badge-mobile.svg");
-  background-position: center;
-  background-size: contain;
-}
-.scrolled .usda-badge-mobile {
-  opacity: 1;
-  transition: opacity 300ms;
-  -webkit-transition: opacity 300ms;
-}
-
 footer {
   -webkit-display: flex;
   -moz-display: flex;
@@ -530,7 +398,7 @@ footer p {
   font-family: "Vision Heavy";
   font-size: 1.125rem;
   margin: 0;
-  color: #401f1f;
+  color: #370000;
   display: inline;
 }
 footer a {
@@ -591,111 +459,6 @@ footer li i {
 
 #home-page section {
   width: 100%;
-}
-#home-page section#bg {
-  position: fixed;
-  top: 0;
-}
-
-#bg, #bg > div {
-  transition-property: opacity, background-color;
-  -webkit-transition-property: opacity, background-color;
-  transition-duration: 0.6s;
-  -webkit-transition-duration: 0.6s;
-  transition-timing-function: linear;
-  padding: 0;
-}
-
-#bg {
-  height: 100%;
-}
-#bg.color {
-  opacity: 1;
-}
-#bg.color.hidden {
-  opacity: 0;
-}
-#bg.bg1 {
-  background-color: #f9ec7a;
-}
-#bg.bg2 {
-  background-color: #fdc07c;
-}
-#bg.bg3 {
-  background-color: #f9c9be;
-}
-#bg.bg4 {
-  background-color: #e7cad3;
-}
-#bg > div {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: 100% 100%;
-  opacity: 1;
-}
-#bg > div.bg-gradient1 {
-  background-image: url("../images/bg-gradient-landing.png");
-}
-#bg > div.bg-gradient2 {
-  background-image: url("../images/bg-gradient-mimi.png");
-}
-#bg > div.bg-gradient3 {
-  background-image: url("../images/bg-gradient-ingredients.png");
-}
-#bg > div.bg-gradient4 {
-  background-image: url("../images/bg-gradient-products.png");
-}
-#bg > div.hidden {
-  opacity: 0;
-}
-
-.texture-top, #bg > div.texture-top {
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  width: 100%;
-  max-width: 1900px;
-  height: 100%;
-  background-image: url("../images/bg-texture.png");
-  background-size: contain auto;
-  background-size: contain;
-  background-position: center top;
-  background-repeat: no-repeat;
-}
-@media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
-  .texture-top, #bg > div.texture-top {
-    background-image: url("../images/bg-texture@2x.png");
-  }
-}
-
-.texture-bottom, #bg > div.texture-bottom {
-  position: absolute;
-  z-index: 1;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  width: 100%;
-  max-width: 1900px;
-  height: 100%;
-  background-image: url("../images/bg-texture-bottom.png");
-  background-size: contain auto;
-  background-size: contain;
-  background-position: center bottom;
-  background-repeat: no-repeat;
-}
-@media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
-  .texture-bottom, #bg > div.texture-bottom {
-    background-image: url("../images/bg-texture-bottom@2x.png");
-  }
 }
 
 .nyc-bg, .skyline, .nyc-skyline-lemon {
@@ -801,11 +564,13 @@ footer li i {
   }
 }
 .slide-main.slide1 {
-  margin-top: 150px;
+  padding-top: 150px;
+  background-image: url("../images/bg-feature-gradient.svg");
+  background-size: cover;
 }
 @media (max-width: 680px) {
   .slide-main.slide1 {
-    margin-top: 80px;
+    padding-top: 80px;
   }
 }
 @media (max-width: 680px) {
@@ -819,6 +584,17 @@ footer li i {
 }
 .slide-main.slide2 .bg-graphics {
   background-image: url("../images/slide3-stars.svg");
+}
+
+.bg-feature-bushes {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 369px;
+  background-image: url("../images/bg-feature-bushes.svg");
+  background-repeat: repeat-x;
+  background-size: 636px 369px;
 }
 
 .bg-graphics {
@@ -1054,7 +830,7 @@ footer li i {
 .slide-copy {
   width: 50%;
   max-width: 720px;
-  color: #401f1f;
+  color: #370000;
   z-index: 2;
   padding-left: 2rem;
   text-align: center;
@@ -1127,7 +903,7 @@ footer li i {
   }
 }
 #about-products.slide-main h1 {
-  color: #401f1f;
+  color: #370000;
   max-width: 900px;
 }
 @media (max-width: 1280px) {
@@ -1597,51 +1373,6 @@ table.nutritional-chart td span.chart-flavor:after {
     left: -40px;
   }
 }
-.bottle.orange-mango {
-  background-image: url("../images/slide1-bottle-orange-mango.png");
-  background-size: contain auto;
-  background-size: contain;
-  background-position: center top;
-  background-repeat: no-repeat;
-  top: 14%;
-  right: 8%;
-  width: 14.8vw;
-  height: 19.6vw;
-  min-width: 11.5625rem;
-  min-height: 15.3125rem;
-  max-width: 17.8125rem;
-  max-height: 23.5rem;
-}
-@media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
-  .bottle.orange-mango {
-    background-image: url("../images/slide1-bottle-orange-mango@2x.png");
-  }
-}
-@media (max-width: 1280px) {
-  .bottle.orange-mango {
-    top: 21%;
-  }
-}
-@media (max-width: 960px) {
-  .bottle.orange-mango {
-    top: 34%;
-  }
-}
-@media (max-width: 768px) {
-  .bottle.orange-mango {
-    top: 41%;
-    right: 0;
-    transform: none !important;
-    -webkit-transform: none !important;
-    min-width: 133px;
-    min-height: 176px;
-  }
-}
-@media (max-width: 480px) {
-  .bottle.orange-mango {
-    display: none;
-  }
-}
 .bottle.cran-lime {
   background-image: url("../images/slide1-bottle-cran-lime.png");
   background-size: contain auto;
@@ -1682,77 +1413,6 @@ table.nutritional-chart td span.chart-flavor:after {
   }
 }
 
-.bottles-mobile {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-@media (min-width: 681px) {
-  .bottles-mobile {
-    display: none;
-  }
-}
-
-.mobile-bottle {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-}
-.mobile-bottle.classic {
-  background-image: url("../images/slide1-bottle-classic-mobile.png");
-  background-size: contain auto;
-  background-size: contain;
-  background-position: center top;
-  background-repeat: no-repeat;
-}
-@media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
-  .mobile-bottle.classic {
-    background-image: url("../images/slide1-bottle-classic-mobile@2x.png");
-  }
-}
-.mobile-bottle.pom-blueberry {
-  display: none;
-  background-image: url("../images/slide1-bottle-pom-blueberry-mobile.png");
-  background-size: contain auto;
-  background-size: contain;
-  background-position: center top;
-  background-repeat: no-repeat;
-}
-@media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
-  .mobile-bottle.pom-blueberry {
-    background-image: url("../images/slide1-bottle-pom-blueberry-mobile@2x.png");
-  }
-}
-.mobile-bottle.orange-mango {
-  display: none;
-  background-image: url("../images/slide1-bottle-orange-mango-mobile.png");
-  background-size: contain auto;
-  background-size: contain;
-  background-position: center top;
-  background-repeat: no-repeat;
-}
-@media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
-  .mobile-bottle.orange-mango {
-    background-image: url("../images/slide1-bottle-orange-mango-mobile@2x.png");
-  }
-}
-.mobile-bottle.cran-lime {
-  display: none;
-  background-image: url("../images/slide1-bottle-cran-lime-mobile.png");
-  background-size: contain auto;
-  background-size: contain;
-  background-position: center top;
-  background-repeat: no-repeat;
-}
-@media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
-  .mobile-bottle.cran-lime {
-    background-image: url("../images/slide1-bottle-cran-lime-mobile@2x.png");
-  }
-}
-
 .mint-fruit {
   position: absolute;
   background-image: url("../images/slide1-mint-fruit.png");
@@ -1767,111 +1427,6 @@ table.nutritional-chart td span.chart-flavor:after {
 }
 @media (max-width: 680px) {
   .mint-fruit {
-    display: none;
-  }
-}
-
-.bg-lemon {
-  position: absolute;
-  z-index: 2;
-  background-image: url("../images/slide1-bg-lemon.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  left: 0;
-  top: 35%;
-  width: 7.1354166667vw;
-  min-width: 3.425rem;
-  max-width: 8.5625rem;
-  height: 10.4166666667vw;
-  min-height: 5rem;
-  max-height: 12.5rem;
-}
-@media (max-width: 680px) {
-  .bg-lemon {
-    display: none;
-  }
-}
-
-.bg-lemon-cran {
-  position: absolute;
-  z-index: 2;
-  background-image: url("../images/slide1-bg-lemon-cran.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  right: 2.2vw;
-  top: 42%;
-  width: 10.6770833333vw;
-  min-width: 5.125rem;
-  max-width: 12.8125rem;
-  height: 10.9375vw;
-  min-height: 5.25rem;
-  max-height: 13.125rem;
-}
-@media (max-width: 768px) {
-  .bg-lemon-cran {
-    display: none;
-  }
-}
-
-.bg-lemon-whole-left {
-  position: absolute;
-  z-index: 2;
-  background-image: url("../images/slide1-bg-lemon-whole-left.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  left: 0;
-  bottom: 100px;
-  width: 10.78125vw;
-  min-width: 5.175rem;
-  max-width: 12.9375rem;
-  height: 15vw;
-  min-height: 7.2rem;
-  max-height: 18rem;
-}
-@media (max-width: 680px) {
-  .bg-lemon-whole-left {
-    display: none;
-  }
-}
-
-.bg-lemon-right {
-  position: absolute;
-  z-index: 2;
-  background-image: url("../images/slide1-bg-lemon-right.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  right: 0;
-  bottom: 0;
-  width: 10.3645833333vw;
-  min-width: 4.975rem;
-  max-width: 12.4375rem;
-  height: 8.1770833333vw;
-  min-height: 3.925rem;
-  max-height: 9.8125rem;
-}
-@media (max-width: 680px) {
-  .bg-lemon-right {
-    display: none;
-  }
-}
-
-.bg-orange {
-  position: absolute;
-  z-index: 2;
-  background-image: url("../images/slide1-bg-orange.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  right: 0;
-  top: 32%;
-  width: 5.7291666667vw;
-  min-width: 2.75rem;
-  max-width: 6.875rem;
-  height: 8.8541666667vw;
-  min-height: 4.25rem;
-  max-height: 10.625rem;
-}
-@media (max-width: 680px) {
-  .bg-orange {
     display: none;
   }
 }
@@ -1895,50 +1450,6 @@ table.nutritional-chart td span.chart-flavor:after {
 @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
   .landing-clouds-left {
     background-image: url("../images/landing-clouds-left@2x.png");
-  }
-}
-
-.landing-clouds-right {
-  position: absolute;
-  right: 0;
-  top: 70px;
-  background-image: url("../images/landing-clouds-right.png");
-  background-size: contain auto;
-  background-size: contain;
-  background-position: left top;
-  background-repeat: no-repeat;
-  width: 40.8333333333vw;
-  min-width: 19.6rem;
-  max-width: 49rem;
-  height: 30.2083333333vw;
-  min-height: 14.5rem;
-  max-height: 36.25rem;
-}
-@media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
-  .landing-clouds-right {
-    background-image: url("../images/landing-clouds-right@2x.png");
-  }
-}
-
-.landing-clouds-right {
-  position: absolute;
-  right: 0;
-  top: 70px;
-  background-image: url("../images/landing-clouds-right.png");
-  background-size: contain auto;
-  background-size: contain;
-  background-position: left top;
-  background-repeat: no-repeat;
-  width: 40.8333333333vw;
-  min-width: 19.6rem;
-  max-width: 49rem;
-  height: 30.2083333333vw;
-  min-height: 14.5rem;
-  max-height: 36.25rem;
-}
-@media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
-  .landing-clouds-right {
-    background-image: url("../images/landing-clouds-right@2x.png");
   }
 }
 
@@ -2444,36 +1955,6 @@ table.nutritional-chart td span.chart-flavor:after {
 .center {
   position: absolute;
   top: 50%;
-}
-
-#airplane {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: -5%;
-  left: 0;
-  position: absolute;
-  transform-origin: top;
-}
-@media (max-width: 1020px) {
-  #airplane {
-    margin-left: 100px;
-  }
-}
-@media (max-width: 768px) {
-  #airplane {
-    margin-left: 40px;
-  }
-}
-@media (max-width: 680px) {
-  #airplane {
-    display: none;
-  }
-}
-#airplane > div {
-  transform: translateX(-50%) !important;
-  -webkit-transform: translateX(-50%) !important;
-  left: 50% !important;
 }
 
 /*# sourceMappingURL=style.css.map */

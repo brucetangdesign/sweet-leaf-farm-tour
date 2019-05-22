@@ -51,7 +51,6 @@ header{
 
 .logo-container{
   position: relative;
-  width: 243px;
 
   img{
     position: relative;
@@ -59,66 +58,21 @@ header{
     width: 100%;
   }
 
-  &:after{
-    content: '';
-    position: absolute;
-    z-index: 1;
-    background-image: url('../images/logo-bg-gradient.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    left: 50%;
-    top: 53%;
-    width: 154%;
-    height: 256%;
-    transform: translateX(-50%) translateY(-50%);
-    -webkit-transform: translateX(-50%) translateY(-50%);
-  }
-
-  .mobile-logo{
-    opacity: 0;
-    position: absolute;
-    width: 84px;
-    height: 45px;
-
-    //@include breakpoint(s){
-      .scrolled &{
-        opacity: 1;
-        position: relative;
-
-        transition: opacity 300ms;
-        -webkit-transition: opacity 300ms;
-      }
-    //}
-  }
 
   .desktop-logo{
+    width: 242px;
     opacity: 1;
 
-    //@include breakpoint(s){
-      .scrolled &{
-        opacity: 0;
-        position: absolute;
-      }
-    //}
-  }
-
-  .scrolled &{
-    width: 84px;
-    &:after{
-      display: none;
-    }
-  }
-
-  @include breakpoint(s){
-    width: 146px;
-  }
-
-  @include breakpoint(xs){
-    width: 120px;
-
     .scrolled &{
-      width: 84px;
+      width: 84px !important;
+    }
+
+    @include breakpoint(s){
+      width: 146px;
+    }
+
+    @include breakpoint(xs){
+      width: 120px;
     }
   }
 }
@@ -182,64 +136,6 @@ nav{
       position: absolute;
       right: 18px;
       a{ color: #FFFFFF; }
-    }
-  //}
-}
-
-.usda-badge{
-  position: absolute;
-  z-index: 3000;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 22px;
-  top: 100%;
-  width: getRem(80px);
-  height: getRem(80px);
-
-  background-image: url('../images/usda-badge.svg');
-  background-position: center;
-  background-size: contain;
-
-  @include breakpoint(m-l){
-    width: getRem(65px);
-    height: getRem(65px);
-    margin-top: 13px;
-  }
-
-  @include breakpoint(s){
-    width: getRem(50px);
-    height: getRem(50px);
-    margin-top: 8px;
-  }
-
-  .scrolled &{
-    opacity: 0;
-    position: absolute;
-  }
-}
-
-.usda-badge-mobile{
-  opacity: 0;
-  position: absolute;
-  z-index: 3000;
-  left: 100%;
-  margin-left: 13px;
-  @include center-vert;
-  width: 40px;
-  height: 40px;
-
-  background-image: url('../images/usda-badge-mobile.svg');
-  background-position: center;
-  background-size: contain;
-
-  //@include breakpoint(s){
-    .scrolled &{
-      opacity: 1;
-
-      transition: opacity 300ms;
-      -webkit-transition: opacity 300ms;
     }
   //}
 }

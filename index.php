@@ -11,8 +11,6 @@ $page = "home-page";
 <html lang="en">
   <head>
     <?php include 'head.php'; ?>
-    <script src="js/isInView.js"></script>
-    <script src="js/lottie.min.js"></script>
     <script src="js/sweetleaf.js"></script>
   </head>
 
@@ -43,50 +41,18 @@ $page = "home-page";
     <!-- End OwnerIQ tag -->
 
     <?php include 'header.php'; ?>
-    <!-- Backgrounds -->
-    <section id="bg">
-      <div class="texture-top"></div>
-      <div class="bg-gradient1">
-        <div class="nyc-skyline-lemon"></div>
-        <div class="nyc-bg"></div>
-      </div>
-      <div class="bg-gradient2 hidden">
-        <div class="texture-bottom"></div>
-      </div>
-      <div class="bg-gradient3 hidden">
-        <div class="texture-bottom"></div>
-      </div>
-      <div class="bg-gradient4 hidden">
-        <div class="nyc-bg"></div>
-      </div>
-    </section>
 
     <!-- Main Slides -->
     <section class="slide-main slide1">
+      <div class="bg-feature-bushes"></div>
       <div class="landing-clouds-left rellax" data-rellax-speed="-6"></div>
-      <div class="landing-clouds-right rellax" data-rellax-speed="-4"></div>
-      <div id="airplane"></div>
-      <div class="bottle orange-mango rellax" data-rellax-speed="-5"></div>
-      <div class="bg-lemon rellax" data-rellax-speed="1"></div>
-      <div class="bg-orange rellax" data-rellax-speed="3"></div>
-      <div class="bg-lemon-cran rellax" data-rellax-speed="-2"></div>
-      <div class="bg-lemon-whole-left rellax" data-rellax-speed="-3"></div>
-      <div class="bg-lemon-right rellax" data-rellax-speed="-4"></div>
-      <div class="bottle cran-lime rellax"></div>
-      <div class="bottle pom-blueberry rellax" data-rellax-speed="1"></div>
       <div class="center"></div>
       <div class="slide-content">
         <div class="slide-image-container" data-rellax-speed="3">
           <div class="slide-image"></div>
-          <div class="bottles-mobile">
-            <div class="mobile-bottle classic"></div>
-            <div class="mobile-bottle pom-blueberry"></div>
-            <div class="mobile-bottle orange-mango"></div>
-            <div class="mobile-bottle cran-lime"></div>
-          </div>
         </div>
         <div class="slide-copy" data-rellax-speed="3">
-          <h1 class="h1-sans">Bless Your<span class="larger-line">Taste buds</span></h1>
+          <h1 class="h1">Sweet For Luke</h1>
           <p class="subtitle">Organic Sweet Leaf Lemonade has arrived! Now available in New York!</p>
         </div>
       </div>

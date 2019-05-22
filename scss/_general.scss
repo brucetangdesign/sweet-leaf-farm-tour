@@ -14,7 +14,7 @@ html,body{
   color: $sl-brown;
   font-family: "Vision Heavy";
   font-size: $base-font-size;
-  background-color: $sl-yellow;
+  background-color: $sl-orange;
 
   @include breakpoint(s){
     font-size: $mobile-font-size;
@@ -32,87 +32,46 @@ h1,h2,h3,h4,h5{
 
 h1{
   font-family: "Farao Black";
-  font-size: getRem(48px);
+  font-size: getRem(68px);
   line-height: 1.15;
   margin: 1rem 0;
 
   @include breakpoint(l){
-    font-size: getRem(41px);
+    font-size: getRem(58px);
   }
 
   @include breakpoint(m){
-    font-size: getRem(35px);
+    font-size: getRem(49px);
     margin: 0.75rem 0;
   }
 
   @include breakpoint(s){
-    font-size: getRem(30px);
+    font-size: getRem(41px);
     margin: 0.5rem 0;
   }
 
   @include breakpoint(xs){
-    font-size: getRem(26px);
+    font-size: getRem(30px);
     margin: 0.5rem 0;
-  }
-
-  &.h1-sans{
-    font-family: "Vision Black";
-    font-size: getRem(80px);
-    color: $sl-red;
-    text-transform: uppercase;
-    line-height: 0.81;
-    letter-spacing: -8px;
-
-    .larger-line{
-      display: block;
-      font-size: getRem(90px);
-    }
-
-    @include breakpoint(l){
-      font-size: getRem(68px);
-      letter-spacing: -6.8px;
-
-      .larger-line{
-        font-size: getRem(77px);
-      }
-    }
-
-    @include breakpoint(m){
-      font-size: getRem(58px);
-      letter-spacing: -5.8px;
-
-      .larger-line{
-        font-size: getRem(66px);
-      }
-    }
-
-    @include breakpoint(s){
-      font-size: getRem(50px);
-      letter-spacing: -5px;
-
-      .larger-line{
-        font-size: getRem(56px);
-      }
-    }
   }
 }
 
 h2{
   font-family: "Farao Black";
-  font-size: getRem(50px);
+  font-size: getRem(48px);
   line-height: 1.05;
   letter-spacing: 2px;
 
   @include breakpoint(l){
-    font-size: getRem(42px);
+    font-size: getRem(40px);
   }
 
   @include breakpoint(m){
-    font-size: getRem(35px);
+    font-size: getRem(33px);
   }
 
   @include breakpoint(s){
-    font-size: getRem(30px);
+    font-size: getRem(26px);
   }
 }
 

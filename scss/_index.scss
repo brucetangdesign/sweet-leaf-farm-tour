@@ -2,109 +2,8 @@
   section{
     width: 100%;
   }
-
-  section#bg{
-    position: fixed;
-    top: 0;
-  }
 }
 
-#bg, #bg > div{
-  transition-property: opacity, background-color;
-  -webkit-transition-property: opacity, background-color;
-  transition-duration: 0.6s;
-  -webkit-transition-duration: 0.6s;
-  transition-timing-function: linear;
-  padding: 0;
-}
-
-
-#bg{
-  height: 100%;
-
-  &.color{
-    opacity: 1;
-
-    &.hidden{
-      opacity: 0;
-    }
-  }
-
-  &.bg1{
-    background-color: $sl-yellow;
-  }
-  &.bg2{
-    background-color: #fdc07c;
-  }
-  &.bg3{
-    background-color: #f9c9be;
-  }
-  &.bg4{
-    background-color: $sl-pink;
-  }
-
-  > div{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-position: top center;
-    background-size: 100% 100%;
-    opacity: 1;
-
-    &.bg-gradient1{
-      background-image: url('../images/bg-gradient-landing.png');
-      //background-color: $sl-orange;
-    }
-
-    &.bg-gradient2{
-      background-image: url('../images/bg-gradient-mimi.png');
-      //background-color: #d7de2c;
-    }
-
-    &.bg-gradient3{
-      background-image: url('../images/bg-gradient-ingredients.png');
-      //background-color: #e8851a;
-    }
-
-    &.bg-gradient4{
-      background-image: url('../images/bg-gradient-products.png');
-      //background-color: $sl-orange;
-    }
-
-    &.hidden{
-      opacity: 0;
-    }
-  }
-}
-
-.texture-top, #bg > div.texture-top{
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  width: 100%;
-  max-width: 1900px;
-  height: 100%;
-  @include background-2x( '../images/bg-texture', 'png', contain, auto, center top, no-repeat );
-}
-
-.texture-bottom, #bg > div.texture-bottom{
-  position: absolute;
-  z-index: 1;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  width: 100%;
-  max-width: 1900px;
-  height: 100%;
-  @include background-2x( '../images/bg-texture-bottom', 'png', contain, auto, center bottom, no-repeat );
-}
 
 .nyc-bg, .skyline, .nyc-skyline-lemon{
   position: absolute;
@@ -188,11 +87,14 @@
   }
 
   &.slide1{
-    margin-top: 150px;
+    padding-top: 150px;
 
     @include breakpoint(xs-680){
-      margin-top: 80px;
+      padding-top: 80px;
     }
+
+    background-image: url('../images/bg-feature-gradient.svg');
+    background-size: cover;
   }
 
   &.slide3{
@@ -211,6 +113,17 @@
       background-image: url('../images/slide3-stars.svg');
     }
   }
+}
+
+.bg-feature-bushes{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 369px;
+  background-image: url('../images/bg-feature-bushes.svg');
+  background-repeat: repeat-x;
+  background-size: 636px 369px;
 }
 
 .bg-graphics{
@@ -844,39 +757,6 @@ table.nutritional-chart{
     }
   }
 
-  &.orange-mango{
-    @include background-2x( '../images/slide1-bottle-orange-mango', 'png', contain, auto, center top, no-repeat );
-    top: 14%;
-    right: 8%;
-    width: 14.8vw;
-    height: 19.6vw;
-    min-width: getRem(185px);
-    min-height: getRem(245px);
-    max-width: getRem(285px);
-    max-height: getRem(376px);
-
-    @include breakpoint(l){
-      top: 21%;
-    }
-
-    @include breakpoint(m-s){
-      top: 34%;
-    }
-
-    @include breakpoint(s){
-      top: 41%;
-      right: 0;
-      transform: none !important;
-      -webkit-transform: none !important;
-      min-width: 133px;
-      min-height: 176px;
-    }
-
-    @include breakpoint(xs){
-      display: none;
-    }
-  }
-
   &.cran-lime{
     @include background-2x( '../images/slide1-bottle-cran-lime', 'png', contain, auto, center top, no-repeat );
     top: 33%;
@@ -906,44 +786,6 @@ table.nutritional-chart{
   }
 }
 
-.bottles-mobile{
-  position: absolute;
-  width: 100%;
-  height: 100%;
-
-  @include breakpoint(xs-680-up){
-    display: none;
-  }
-}
-
-.mobile-bottle{
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-
-  &.classic{
-    @include background-2x( '../images/slide1-bottle-classic-mobile', 'png', contain, auto, center top, no-repeat );
-  }
-
-  &.pom-blueberry{
-    display: none;
-    @include background-2x( '../images/slide1-bottle-pom-blueberry-mobile', 'png', contain, auto, center top, no-repeat );
-  }
-
-  &.orange-mango{
-    display: none;
-    @include background-2x( '../images/slide1-bottle-orange-mango-mobile', 'png', contain, auto, center top, no-repeat );
-  }
-
-  &.cran-lime{
-    display: none;
-    @include background-2x( '../images/slide1-bottle-cran-lime-mobile', 'png', contain, auto, center top, no-repeat );
-  }
-}
-
 .mint-fruit{
   position: absolute;
   background-image: url('../images/slide1-mint-fruit.png');
@@ -963,80 +805,6 @@ table.nutritional-chart{
   }
 }
 
-.bg-lemon{
-  position: absolute;
-  z-index: 2;
-  background-image: url('../images/slide1-bg-lemon.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  left: 0;
-  top: 35%;
-  @include size-to-screen-width(137,200,0.4);
-
-  @include breakpoint(xs-680){
-    display: none;
-  }
-}
-
-.bg-lemon-cran{
-  position: absolute;
-  z-index: 2;
-  background-image: url('../images/slide1-bg-lemon-cran.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  right: 2.2vw;
-  top: 42%;
-  @include size-to-screen-width(205,210,0.4);
-
-  @include breakpoint(s){
-    display: none;
-  }
-}
-
-.bg-lemon-whole-left{
-  position: absolute;
-  z-index: 2;
-  background-image: url('../images/slide1-bg-lemon-whole-left.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  left: 0;
-  bottom: 100px;
-  @include size-to-screen-width(207,288,0.4);
-
-  @include breakpoint(xs-680){
-    display: none;
-  }
-}
-
-.bg-lemon-right{
-  position: absolute;
-  z-index: 2;
-  background-image: url('../images/slide1-bg-lemon-right.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  right: 0;
-  bottom: 0;
-  @include size-to-screen-width(199,157,0.4);
-
-  @include breakpoint(xs-680){
-    display: none;
-  }
-}
-
-.bg-orange{
-  position: absolute;
-  z-index: 2;
-  background-image: url('../images/slide1-bg-orange.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  right: 0;
-  top: 32%;
-  @include size-to-screen-width(110,170,0.4);
-
-  @include breakpoint(xs-680){
-    display: none;
-  }
-}
 
 
 .landing-clouds-left{
@@ -1048,23 +816,6 @@ table.nutritional-chart{
   @include size-to-screen-width(996,791,0.4);
 }
 
-.landing-clouds-right{
-  position: absolute;
-  right: 0;
-  top: 70px;
-  @include background-2x( '../images/landing-clouds-right', 'png', contain, auto, left top, no-repeat );
-
-  @include size-to-screen-width(784,580,0.4);
-}
-
-.landing-clouds-right{
-  position: absolute;
-  right: 0;
-  top: 70px;
-  @include background-2x( '../images/landing-clouds-right', 'png', contain, auto, left top, no-repeat );
-
-  @include size-to-screen-width(784,580,0.4);
-}
 
 .mimi-clouds-left{
   position: absolute;
@@ -1338,32 +1089,4 @@ table.nutritional-chart{
 .center{
   position: absolute;
   top: 50%;
-}
-
-#airplane{
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: -5%;
-  left: 0;
-  position: absolute;
-  transform-origin: top;
-
-  @include breakpoint(m){
-    margin-left: 100px;
-  }
-
-  @include breakpoint(s){
-    margin-left: 40px;
-  }
-
-  @include breakpoint(xs-680){
-    display: none;
-  }
-
-  > div{
-    transform: translateX(-50%) !important;
-    -webkit-transform: translateX(-50%) !important;
-    left: 50% !important;
-  }
 }
