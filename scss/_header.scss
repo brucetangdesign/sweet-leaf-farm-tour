@@ -1,6 +1,6 @@
 header{
   @include prefixr(display,flex);
-  @include prefixr(align-items,center);
+  @include prefixr(align-items,flex-start);
   @include prefixr(justify-content,space-between);
   position: fixed;
   top: 0;
@@ -38,6 +38,7 @@ header{
   }
 
   &.scrolled{
+    @include prefixr(align-items,center);
     padding: 10px 20px 9px;
 
     &:before{
@@ -112,9 +113,10 @@ nav{
   }
 
   a{
-    color: $sl-red;
+    color: #FFFFFF;
     text-decoration: none;
     text-transform: uppercase;
+    cursor: pointer;
 
     transition: all 200ms;
     -webkit-transition: all 200ms;
@@ -135,7 +137,6 @@ nav{
     .scrolled &{
       position: absolute;
       right: 18px;
-      a{ color: #FFFFFF; }
     }
   //}
 }

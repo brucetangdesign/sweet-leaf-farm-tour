@@ -92,9 +92,6 @@
     @include breakpoint(xs-680){
       padding-top: 80px;
     }
-
-    background-image: url('../images/bg-feature-gradient.svg');
-    background-size: cover;
   }
 
   &.slide3{
@@ -115,15 +112,75 @@
   }
 }
 
+.bg-feature-gradient{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  max-height: 1068px;
+  @include background-2x( '../images/bg-feature-gradient', 'jpg', cover, auto, center top, no-repeat );
+}
+
 .bg-feature-bushes{
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 369px;
+  height: 19vw;
+  max-height: 369px;
   background-image: url('../images/bg-feature-bushes.svg');
   background-repeat: repeat-x;
-  background-size: 636px 369px;
+  background-size: 32vw;
+}
+
+.bg-feature-barn-container{
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+}
+
+.bg-feature-barn{
+  position: absolute;
+  bottom: 80px;
+  right: -20px;
+  background-image: url('../images/feature-barn.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  @include size-to-screen-width(544,343,0.4,1500px);
+}
+
+.bg-feature-grass-container{
+  position: absolute;
+  bottom: 0;
+  width: 50%;
+  height: 100%;
+}
+
+.bg-feature-grass{
+  position: absolute;
+  bottom: 58px;
+  right: -45px;
+  background-image: url('../images/bg-feature-grass.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 544px;
+  height: 53px;
+  //@include size-to-screen-width(555,54,0.4,1500px);
+}
+
+
+.bg-feature-fence{
+  position: absolute;
+  opacity: 0.8;
+  bottom: 67px;
+  left: 0;
+  width: 100%;
+  height: 56px;
+  background-image: url('../images/bg-feature-fence.svg');
+  background-repeat: repeat-x;
+  background-size: 1822px 56px;
 }
 
 .bg-graphics{
@@ -158,7 +215,7 @@
 .slide-content{
   @include prefixr(display,flex);
   @include prefixr(justify-content,center);
-  @include prefixr(align-items,center);
+  @include prefixr(align-items,flex-start);
   width: 100%;
   height: 100%;
   max-width: $container-width-max;
@@ -199,11 +256,48 @@
   }
 }
 
+ul.feature-hashtags{
+  color: #FFFFFF;
+  font-family: "Vision Heavy";
+  font-size: getRem(22px);
+  letter-spacing: -1.5px;
+  padding-left: getRem(22px);
+  padding-top: getRem(5px);
+
+  span{
+    color: $sl-red;
+  }
+
+  li{
+    margin: 0 10px;
+    text-shadow: 2px 2px 21px rgba(0,0,0,0.42);
+
+    &:first-of-type{
+      margin-left: 0;
+    }
+
+    &:last-of-type{
+      margin-right: 0;
+    }
+  }
+}
+
+.feature-stars{
+  position: absolute;
+  top: -120px;
+  left: -140px;
+  background-image: url('../images/feature-stars.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  @include size-to-screen-width(860,568,0.4,1500px);
+}
+
 .slide-image{
   position: relative;
   width: 100%;
-  height: 100vh;
-  max-width: 700px;
+  height: 100%;
+
   //max-height: 70vh;
   background-repeat: no-repeat;
   background-position: center;
@@ -217,28 +311,8 @@
   }
 
   .slide1 &{
-    margin-left: 15vw;
-    width: 44.5vw;
-    height: 61.1vw;
-    max-width: 624px;
-    max-height: 856px;
-    min-width: 358px;
-    min-height: 491px;
-    @include background-2x( '../images/slide1-bottle-classic', 'png', contain, auto, center top, no-repeat );
-
-    @include breakpoint(s){
-      margin-left: 21vw;
-    }
-
-    @include breakpoint(xs-680){
-      opacity: 0;
-    }
-
-    @include breakpoint(xs){
-      min-width: 250px;
-      min-height: 384px;
-      margin-left: 37vw;
-    }
+    @include background-2x( '../images/feature-luke', 'png', contain, auto, center top, no-repeat );
+    @include size-to-screen-width(610,818,0.4,1500px);
   }
 
   .slide3 &{
@@ -291,14 +365,10 @@
 //Slide 1 and about are exceptions to the layout
 .slide-main.slide1{
   height: auto;
-  min-height: 100vh;
-
-  .slide-content{
-    @include prefixr(flex-direction,column-reverse);
-  }
+  margin-bottom: 200px;
 
   .slide-image-container{
-    width: 100%;
+    width: 50%;
 
     @include breakpoint(xs-680){
       height: auto;
@@ -312,19 +382,175 @@
   }
 
   .slide-copy{
-    width: 100%;
-    padding-top: 14vh;
+    position: relative;
+    width: 50%;
     padding-left: 0;
     text-align: center;
     margin-bottom: 2rem;
 
-    @include breakpoint(m){
-      max-width: 500px;
+    > *{
+      position: relative;
+    }
+
+    .feature-logo-glow{
+      position: absolute;
+      top: -50px;
+      left: 0;
+      right: 0;
+      margin: auto;
+      background-image: url("../images/feature-logo-glow.svg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      @include size-to-screen-width(370,353,0.5,1500px);
+    }
+
+    .feature-logo{
+      @include size-to-screen-width(400,215,0.5,1500px);
+    }
+
+    p.subtitle{
+      max-width: 535px;
+      margin-bottom: getRem(28px);
+    }
+
+    h4{
+      margin-top: 0;
+      margin-bottom: getRem(5px);
     }
   }
 
   @include breakpoint(s){
     min-height: 0;
+  }
+}
+
+.location-box{
+  display: inline-block;
+  padding: getRem(38px) getRem(27px);
+  background-image: url("../images/location-box-texture.jpg");
+  background-size: 50%;
+  -webkit-box-shadow: 0px 0px 16px 4px rgba(0,0,0,0.35);
+  -moz-box-shadow: 0px 0px 16px 4px rgba(0,0,0,0.35);
+  box-shadow: 0px 0px 16px 4px rgba(0,0,0,0.35);
+
+  p{
+    margin: 0;
+
+    &.location-info{
+      @extend .h4;
+      text-transform: none;
+      font-family: "Farao Black";
+      letter-spacing: 0;
+    }
+
+    &.location-city{
+      color: $sl-red;
+      font-family: "Farao Black";
+      font-size: getRem(33px);
+
+      @include breakpoint(l){
+        font-size: getRem(28px);
+      }
+
+      @include breakpoint(s){
+        font-size: getRem(24px);
+      }
+    }
+  }
+
+  p:first-of-type{
+    margin-top: 0;
+  }
+  p:last-of-type{
+    margin-bottom: 0;
+  }
+}
+
+#retailers{
+    text-align: center;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    height: auto;
+    margin-bottom: 11rem;
+
+    > *{
+      margin-left: auto;
+      margin-right: auto;
+    }
+}
+
+.retailer-content{
+  max-width: $container-width-max;
+  background-color: rgba(255,255,255,0.3);
+  border-radius: 20px;
+  padding: 2rem;
+
+  > *{
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.retailer-logos{
+  @include prefixr(display, flex);
+  @include prefixr(justify-content, center);
+  @include prefixr(align-items, center);
+  @include prefixr(flex-wrap, wrap);
+  max-width: 1170px;
+
+  >div{
+    width: 20%;
+    padding: 6px;
+
+    @include breakpoint(s-up){
+      &:nth-child(5n){
+        padding-left: 12px;
+        padding-right: 0px;
+      }
+
+      &:first-child, &:nth-child(6n){
+        padding-left: 0px;
+        padding-right: 12px;
+      }
+    }
+
+    @include breakpoint(s){
+      width: calc(100% / 3);
+
+      &:nth-child(3n){
+        padding-left: 12px;
+        padding-right: 0px;
+      }
+
+      &:first-child, &:nth-child(3n + 1){
+        padding-left: 0px;
+        padding-right: 12px;
+      }
+    }
+
+    @include breakpoint(xs-680){
+      width: 50%;
+
+      &:nth-child(even){
+        padding-left: 12px;
+        padding-right: 0px;
+      }
+
+      &:nth-child(odd){
+        padding-left: 0px;
+        padding-right: 12px;
+      }
+
+      img{
+        max-width: 180px;
+      }
+    }
+  }
+
+
+  img{
+    width: 100%;
+    max-width: 250px;
   }
 }
 
@@ -398,9 +624,15 @@
 .about-products-main{
   position: relative;
   text-align: center;
-  //max-width: $container-width-max;
+  max-width: $container-width-max;
   margin-left: auto;
   margin-right: auto;
+
+  h2,p{
+    max-width: 1128px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
   img{
     display: block;
@@ -411,19 +643,22 @@
 }
 
 .about-products-main-image{
+  width: 92.3vw;
+  height: 30.34vw;
+  max-width: 1329px;
+  max-height: 437px;
   margin: 3rem auto 0;
 
   @include background-2x( '../images/home-products-main', 'png', contain, auto, center center, no-repeat );
   background-size: contain !important;
 
-  @include size-to-screen-width(865,661,0.6);
-
   @include breakpoint(xs-680){
-    @include size-to-screen-width(865,661,0.5);
-  }
-
-  @include breakpoint(xs){
-    @include size-to-screen-width(865,661,0.33);
+    width: 100%;
+    height: 53.82vw;
+    max-width: 680px;
+    max-height: 366px;
+    margin-top: 0.5rem;
+    @include background-2x( '../images/home-products-main-mobile', 'png', contain, auto, center center, no-repeat );
   }
 }
 
@@ -484,606 +719,71 @@
   }
 }
 
-.product-chart{
-  display: inline-block;
-  position: relative;
+.product-side-lemon{
+  position: absolute;
+  right: 0;
+  bottom: -100px;
+  @include background-2x( '../images/product-side-lemon', 'png', contain, auto, center center, no-repeat );
+  @include size-to-screen-width(280,231,0.5);
+}
+
+.product-side-honey{
+  position: absolute;
+  left: 0;
+  top: 10%;
+  @include background-2x( '../images/product-side-honey', 'png', contain, auto, center center, no-repeat );
+  @include size-to-screen-width(250,282,0.5);
+}
+
+#tour-photos.slide-main{
+  display: block;
+  width: 100%;
+  margin-left: auto;
+  height: auto;
   text-align: center;
-  margin-top: 4rem;
-  img{
-    max-width: 800px;
-    width: 100%;
+
+  @include breakpoint(xs-680-up){
+    margin-bottom: 11rem;
   }
 
-  &:before, &:after, .honeycomb{
-    content: '';
-    position: absolute;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: bottom;
-  }
-
-  &:before{
-    background-image: url('../images/chart-leaves-left.png');
-    @include size-to-screen-width(308,194,1);
-    max-width: 308px;
-    max-height: 194px;
-    left: -180px;
-    bottom: -96px;
-    z-index: 3;
-
-    @include breakpoint(l){
-      @include size-to-screen-width(308,194,0.8);
-      left: -122px;
-    }
-
-    @include breakpoint(s){
-      left: -86px;
-    }
-  }
-
-  &:after{
-    background-image: url('../images/chart-leaves-right.png');
-    @include size-to-screen-width(256,158,1);
-    max-width: 256px;
-    max-height: 158px;
-    right: -165px;
-    bottom: -88px;
-    z-index: 3;
-
-    @include breakpoint(l){
-      @include size-to-screen-width(308,194,0.8);
-      right: -151px;
-    }
-
-    @include breakpoint(s){
-      right: -86px;
-    }
-  }
-
-  @include breakpoint (xs-680){
+  .button{
     margin-top: 2rem;
-    width: 100%;
-
-    &:before, &:after, .honeycomb{
-      display: none;
-    }
-  }
-}
-
-.chart-title{
-  font-size: getRem(40px);
-
-  &:before, &:after{
-    content: '';
-    position: relative;
-    display: inline-block;
-    width: 27px;
-    height: 26px;
-    background-image: url('../images/star.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
+    margin-bottom: 1rem;
   }
 
-  &:before{
-    margin-right: 10px;
-  }
+  .photos{
+    margin-top: 50px;
+    @include prefixr(display,flex);
+    @include prefixr(justify-content,center);
 
-  &:after{
-    margin-left: 10px;
-  }
-
-  @include breakpoint (xs-680){
-    font-size: getRem(30px);
-
-    &:before, &:after{
-      width: 22px;
-      height: 20px;
-    }
-  }
-}
-
-table.nutritional-chart{
-  position: relative;
-  z-index: 2;
-  width: 100vw;
-  max-width: 900px;
-  margin: auto;
-  text-align: left;
-  border-collapse: separate;
-  border: solid transparent 1px;
-  border-radius: 20px;
-  border-spacing: 0;
-  overflow: hidden;
-  line-height: 1;
-  letter-spacing: -1px;
-  text-align: center;
-  font-size: 1rem;
-  margin-top: 1.7rem;
-
-  th, td{
-    vertical-align: middle;
-    padding-top: 27px;
-    padding-bottom: 25px;
-
-    &:nth-child(1){
-      text-align: left;
-      padding-left: getRem(38px);
-      padding-right: 18px;
-    }
-
-    &:last-of-type{
-      padding-right: getRem(38px);
-    }
-  }
-
-  thead{
-    font-size: 1.875em;
-
-    tr{
-      background-color: $sl-red;
-      color: #FFFFFF;
-    }
-
-    .small-text{
-      display: block;
-      font-size: 0.6em;
-    }
-  }
-
-  tbody{
-    font-family: "Vision Bold";
-    font-size: 1.6875em;
-
-    tr{
-      background-color: #fdf4dc;
-
-      &:nth-child(even){
-        background-color: #fcedc5;
-      }
-    }
-  }
-
-  td.subhead{
-    font-family: "Vision Heavy";
-    font-size: 1.1111em;
-    text-align: center;
-
-    @include breakpoint (xs-680){
-      font-size: 21px;
-    }
-  }
-
-  td{
-    span.chart-flavor{
+    > div{
       position: relative;
+      padding-left: 10px;
+      padding-right: 10px;
 
-      &:after{
-        content: '';
-        position: absolute;
-        display: inline-block;
-        background-repeat: no-repeat;
-        background-size: contain;
-        left: 144px;
-        top: 50%;
-        transform: translateY(-50%);
-        -webkit-transform: translateY(-50%);
-        width: 5.8vw;
-        height: 5.3vw;
-        max-width: 56px;
-        max-height: 51px;
-        min-width: 30px;
-        min-height: 27px;
-
-        @include breakpoint(xs-680){
-          left: 100px;
-        }
-      }    }
-  }
-
-  @include breakpoint (m-l){
-    width: 75vw;
-  }
-
-  @include breakpoint (m-s){
-    th, td{
-      &:nth-child(1){
-        max-width: 176px;
-      }
-    }
-  }
-
-  @include breakpoint (xs-680){
-    font-size: 0.66rem;
-    width: 100%;
-
-    thead .small-text{
-      font-size: 0.66em;
-    }
-
-    th, td{
-      &:nth-child(1){
-        max-width: 30vw;
-        padding-left: getRem(23px);
-        padding-right: 0;
+      &:first-of-type{
+        padding-left: 0;
+        padding-right: 20px;
       }
 
       &:last-of-type{
-        padding-right: getRem(23px);
+        padding-right: 0;
+        padding-left: 20px;
       }
     }
-  }
-}
 
-//Random slide elements
-.bottle{
-  position: absolute;
-  z-index: 2;
-  background-size: contain;
-  background-repeat: no-repeat;
-
-  @include breakpoint(xs-680){
-    display: none;
-  }
-
-  &.pom-blueberry{
-    @include background-2x( '../images/slide1-bottle-pom-blueberry', 'png', contain, auto, center top, no-repeat );
-    top: 29%;
-    left: 18%;
-    width: 25.7vw;
-    height: 29.2vw;
-    min-width: getRem(268px);
-    min-height: getRem(303px);
-    max-width: getRem(495px);
-    max-height: getRem(561px);
-
-    @include breakpoint(m-s){
-      left: 13%;
-    }
-
-    @include breakpoint(s){
-      top: 46%;
-      left: 6%;
-    }
-
-    @include breakpoint(xs-680){
-      min-width: 165px;
-      min-height: 186px;
-      left: 4%;
-    }
-
-    @include breakpoint(xs){
-      top: 290px;
-      left: -40px;
-    }
-  }
-
-  &.cran-lime{
-    @include background-2x( '../images/slide1-bottle-cran-lime', 'png', contain, auto, center top, no-repeat );
-    top: 33%;
-    left: 3%;
-    width: 21.1vw;
-    height: 18vw;
-    min-width: getRem(219px);
-    min-height: getRem(187px);
-    max-width: getRem(406px);
-    max-height: getRem(346px);
-
-    @include breakpoint(s){
-      top: 35%;
-      left: -4%;
-    }
-
-    @include breakpoint(xs-680){
-      top: 39%;
-      left: -6%;
-      min-width: 135px;
-      min-height: 115px;
-    }
-
-    @include breakpoint(xs){
-      display: none;
+    img{
+      width: 100%;
     }
   }
 }
 
-.mint-fruit{
-  position: absolute;
-  background-image: url('../images/slide1-mint-fruit.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  left: 0;
-  right: 0;
-  top: 33%;
-  margin: auto;
-  width: 79vw;
-  height: 25.4vw;
-  //max-width: getRem(1526px);
-  //max-height: getRem(489px);
-
-  @include breakpoint(xs-680){
-    display: none;
-  }
-}
-
-
-
-.landing-clouds-left{
+.tour-photos-side-orange{
   position: absolute;
   left: 0;
-  top: -150px;
-  @include background-2x( '../images/landing-clouds-left', 'png', contain, auto, left top, no-repeat );
-
-  @include size-to-screen-width(996,791,0.4);
-}
-
-
-.mimi-clouds-left{
-  position: absolute;
-  left: 0;
-  top: 200px;
-  @include background-2x( '../images/mimi-clouds-left', 'png', contain, auto, left top, no-repeat );
-
-  @include size-to-screen-width(810,803,0.4);
-}
-
-.mimi-clouds-right{
-  position: absolute;
-  right: 0;
-  top: 300px;
-  @include background-2x( '../images/mimi-clouds-right', 'png', contain, auto, left top, no-repeat );
-
-  @include size-to-screen-width(367,641,0.4);
-}
-
-.mimi-left-lem-blueberry{
-  position: absolute;
-  left: 0;
-  top: 400px;
-  @include background-2x( '../images/mimi-side-left-lem-blueberry', 'png', contain, auto, left top, no-repeat );
-
-  @include size-to-screen-width(100,381,0.5);
-
-  @include breakpoint(m-l){
-    top: 434px;
-  }
-
-  @include breakpoint(m){
-    top: 170px;
-  }
-
-  @include breakpoint(s){
-    display: none;
-  }
-}
-
-.mimi-left-pom-lem-orange{
-  position: absolute;
-  left: 4vw;
-  bottom: 40px;
-  @include background-2x( '../images/mimi-side-left-pom-lem-orange', 'png', contain, auto, left top, no-repeat );
-
-  @include size-to-screen-width(223,469,0.3);
-
-  @include breakpoint(m-l){
-    left: 1vw;
-    bottom: auto;
-    top: 475px;
-  }
-
-  @include breakpoint(m){
-    top: 575px;
-  }
-
-  @include breakpoint(s){
-    @include size-to-screen-width(223,469,0.7);
-    transform: none !important;
-    -webkit-transform: none !important;
-    top: auto;
-    bottom: -120px;
-    left: 10%;
-  }
-
-  @include breakpoint(xs-680){
-    display: none;
-  }
-}
-
-.mimi-right-lime-mango{
-  position: absolute;
-  right: -2vw;
-  bottom: -100px;
-  @include background-2x( '../images/mimi-side-right-lime-mango', 'png', contain, auto, left top, no-repeat );
-
-  @include size-to-screen-width(197,460,0.5);
-
-  @media (min-width: 1870px) {
-    right: 3vw;
-    bottom: 0px;
-  }
-
-  @include breakpoint(m){
-    bottom: 0px;
-  }
-
-  @include breakpoint(s){
-    display: none;
-  }
-}
-
-.mimi-right-orange-cran{
-  position: absolute;
-  right: -1vw;
-  top: 310px;
-  @include background-2x( '../images/mimi-side-right-orange-cran', 'png', contain, auto, left top, no-repeat );
-
-  @include size-to-screen-width(124,318,0.5);
-
-  @media (min-width: 1870px) {
-    right: 1vw;
-    top: 400px;
-  }
-
-  @include breakpoint(l){
-    right: -40px;
-    top: 180px;
-  }
-
-  @include breakpoint(m){
-    top: 600px;
-  }
-
-  @include breakpoint(s){
-    @include size-to-screen-width(124,318,0.9);
-    transform: none !important;
-    -webkit-transform: none !important;
-    top: auto;
-    bottom: -260px;
-    right: 30%;
-  }
-
-  @include breakpoint(xs-680){
-    display: none;
-  }
-}
-
-.ingredients-clouds-left{
-  position: absolute;
-  left: 0;
-  top: 550px;
-  @include background-2x( '../images/ingredients-clouds-left', 'png', contain, auto, left top, no-repeat );
-
-  @include size-to-screen-width(148,129,0.4);
-}
-
-.ingredients-clouds-right{
-  position: absolute;
-  right: 0;
-  top: 30px;
-  @include background-2x( '../images/ingredients-clouds-right', 'png', contain, auto, left top, no-repeat );
-
-  @include size-to-screen-width(942,923,0.4);
-}
-
-.ingredients-right-lem{
-  position: absolute;
-  right: 0;
-  bottom: 100px;
-  z-index: 1;
-  @include background-2x( '../images/ingredients-side-right-lem', 'png', contain, auto, left top, no-repeat );
-
-  @include size-to-screen-width(295,271,0.5);
-
-  @include breakpoint(l){
-    bottom: 60px;
-  }
-
-  @include breakpoint(s){
-    display: none;
-  }
-}
-
-.product-clouds-left{
-  position: absolute;
-  left: 0;
-  top: 200px;
-  @include background-2x( '../images/products-clouds-left', 'png', contain, auto, left top, no-repeat );
-
-  @include size-to-screen-width(741,1657,0.4);
-}
-
-.product-clouds-right{
-  position: absolute;
-  right: 0;
-  top: -50px;
-  @include background-2x( '../images/products-clouds-right', 'png', contain, auto, left top, no-repeat );
-
-  @include size-to-screen-width(746,1671,0.4);
-}
-
-.product-left-blue-mango{
-  position: absolute;
-  left: 7vw;
-  top: 400px;
-  @include background-2x( '../images/products-side-left-blue-mango', 'png', contain, auto, left top, no-repeat );
-
-  @include size-to-screen-width(186,374,0.3);
-
-  @include breakpoint(m){
-    top: 535px;
-  }
-
-  @include breakpoint(s){
-    transform: none !important;
-    -webkit-transform: none !important;
-    top: -200px;
-    left: 5%;
-  }
-
-  @include breakpoint(xs-680){
-    top: -108px;
-    left: 35%;
-  }
-}
-
-.product-left-pom-lem-lime{
-  position: absolute;
-  left: 0;
-  top: 440px;
-  @include background-2x( '../images/products-side-left-pom-lem-lime', 'png', contain, auto, left top, no-repeat );
-
-  @include size-to-screen-width(218,564,0.3);
-
-  @include breakpoint(m){
-    top: 525px;
-  }
-
-  @include breakpoint(s){
-    display: none;
-  }
-}
-
-.product-right-lem-lime{
-  position: absolute;
-  right: 0;
-  top: 400px;
-  z-index: 1;
-  @include background-2x( '../images/products-side-right-lem-lime', 'png', contain, auto, left top, no-repeat );
-
-  @include size-to-screen-width(230,386,0.3);
-
-  @include breakpoint(m){
-    top: 535px;
-  }
-
-  @include breakpoint(s){
-    //display: none;
-    transform: none !important;
-    -webkit-transform: none !important;
-    top: -150px;
-  }
-
-  @include breakpoint(xs-680){
-    //display: block;
-    top: -100px;
-  }
-}
-
-.product-right-cran-orange{
-  position: absolute;
-  right: 0;
-  top: 460px;
-  z-index: 1;
-  @include background-2x( '../images/products-side-right-cran-orange', 'png', contain, auto, left top, no-repeat );
-
-  @include size-to-screen-width(275,523,0.3);
-
-  @include breakpoint(m){
-    top: 555px;
-  }
-
-  @include breakpoint(s){
-    display: none;
-  }
+  bottom: -180px;
+  @include background-2x( '../images/tour-photos-side-orange', 'png', contain, auto, center center, no-repeat );
+  @include size-to-screen-width(169,287,0.5);
 }
 
 .center{

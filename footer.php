@@ -10,7 +10,8 @@
 </script>
 	<ul class="hr-list footer-copyright-nav">
 			<li><p>&copy; <?php echo date("Y"); ?> Sweet Leaf Tea</p></li>
-			<li><a href="https://www.sweetleaftea.com/contact/" target="_blank">Contact</a></li>
+			<li><a href="#" target="_blank">Privacy</a></li>
+			<li><a href="#" target="_blank">Terms</a></li>
 	</ul>
   <ul class="hr-list footer-social-menu">
     <li><a href="https://www.facebook.com/sweetleaftea/" target="_blank"><i class="social-icon fb"></i></a></li>

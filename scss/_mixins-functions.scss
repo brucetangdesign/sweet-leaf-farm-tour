@@ -98,6 +98,10 @@
   @if $w == "contain" {
     background-size: $w;
   }
+
+  @if $w == "cover" {
+    background-size: $w;
+  }
   background-position: $pos;
   background-repeat: $repeat;
 

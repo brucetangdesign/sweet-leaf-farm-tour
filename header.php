@@ -12,9 +12,10 @@
       }
     ?>
   </div>
-  <!--<nav>
+  <nav>
     <ul class="hr-list">
-      <li><a href="https://www.sweetleaftea.com/contact/" target="_blank">Contact</a></li>
+      <li><a href="#tour">Tour</a></li>
+      <li><a href="https://www.sweetleaftea.com/" target="_blank">Sweetleaf.com</a></li>
     </ul>
-  </nav>-->
+  </nav>
 </header>

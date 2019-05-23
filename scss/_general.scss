@@ -93,6 +93,21 @@ h3{
   }
 }
 
+h4, .h4{
+  font-family: "Vision Heavy";
+  font-size: getRem(24px);
+  letter-spacing: -2px;
+  text-transform: uppercase;
+
+  @include breakpoint(l){
+    font-size: getRem(21px);
+  }
+
+  @include breakpoint(s){
+    font-size: getRem(19px);
+  }
+}
+
 p{
   font-size: getRem(20px);
   line-height: 1.5;
@@ -102,17 +117,17 @@ p{
 
 p.subtitle, .subtitle{
   font-family: "Vision Bold";
-  font-size: getRem(30px);
+  font-size: getRem(24px);
   margin: auto;
   line-height: 1.3;
   letter-spacing: -2px;
 
   @include breakpoint(l){
-    font-size: getRem(26px);
+    font-size: getRem(21px);
   }
 
   @include breakpoint(s){
-    font-size: getRem(23px);
+    font-size: getRem(19px);
     letter-spacing: -1px;
   }
 }

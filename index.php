@@ -4,7 +4,7 @@
 //Page title
 $pageTitle = "Organic lemonade with an attitude made from simple ingredients you can pronounce | Sweet Leaf Tea Co.";
 $meta_description = "Sweet Leaf Tea organic lemonades are available in Cranberry Lime, Orange Mango, Pomegranate Blueberry, and Classic Lemonade. Sweet but not too sweet.";
-$footerClass="fixed";
+
 $page = "home-page";
 ?>
 
@@ -44,20 +44,41 @@ $page = "home-page";
 
     <!-- Main Slides -->
     <section class="slide-main slide1">
+      <div class="bg-feature-gradient"></div>
       <div class="bg-feature-bushes"></div>
-      <div class="landing-clouds-left rellax" data-rellax-speed="-6"></div>
+      <div class="bg-feature-barn-container">
+        <div class="bg-feature-barn"></div>
+      </div>
+      <div class="bg-feature-fence"></div>
+      <div class="bg-feature-grass-container">
+        <div class="bg-feature-grass"></div>
+      </div>
       <div class="center"></div>
       <div class="slide-content">
-        <div class="slide-image-container" data-rellax-speed="3">
-          <div class="slide-image"></div>
+        <div class="slide-image-container">
+          <div class="slide-image-content">
+            <div class="feature-stars rellax" data-rellax-speed="-3"></div>
+            <div class="slide-image"></div>
+            <ul class="feature-hashtags hr-list">
+              <li><span>#</span>SWEETFORLUKE</li>
+              <li><span>#</span>FARMTOUR2019</li>
+            </ul>
+          </div>
         </div>
         <div class="slide-copy" data-rellax-speed="3">
+          <div class="feature-logo-glow"></div>
+          <img class="feature-logo" src="images/feature-logo-sweet-leaf.svg" />
           <h1 class="h1">Sweet For Luke</h1>
-          <p class="subtitle">Organic Sweet Leaf Lemonade has arrived! Now available in New York!</p>
+          <h4>Official Tea Sponsor of Luke Bryan Farm Tour 2019</h4>
+          <p class="subtitle">Join Sweet Leaf Tea as we go cross-country spreading all types of sweetness during the Luke Bryan 2019 Farm Tour! Bring a friend to our photo booths, enter to win some sweet prizes, and taste the sweet Austin goodness that is Mimi's original organic teas!</p>
+          <div class="location-box">
+            <p class="location-info">Our Next Stop:</p>
+            <p class="location-city">Nashville, TN</p>
+          </div>
         </div>
       </div>
     </section>
-
+    <!--
     <section class="slide-main slide2">
       <div class="mimi-clouds-left rellax" data-rellax-speed="4"></div>
       <div class="mimi-clouds-right rellax" data-rellax-speed="-3"></div>
@@ -92,54 +113,63 @@ $page = "home-page";
         </div>
       </div>
     </section>
+-->
 
-    <section id="about-products" class="slide-main slide4">
-      <div class="product-clouds-left rellax" data-rellax-speed="-4"></div>
-      <div class="product-left-blue-mango rellax" data-rellax-speed="-2"></div>
-      <div class="product-left-pom-lem-lime rellax" data-rellax-speed="3"></div>
-      <div class="product-right-lem-lime rellax" data-rellax-speed="-3"></div>
-      <div class="product-right-cran-orange rellax" data-rellax-speed="4"></div>
-      <div class="product-clouds-right rellax" data-rellax-speed="3"></div>
+    <section id="retailers" class="slide-main">
+      <div class="retailer-content">
+        <p>Find Sweet Leaf Tea at the following retailers:</p>
+        <div class="retailer-logos">
+          <?php
+            //Get all retailer images
+            $directory = "images/retailers";
+            $images = glob($directory . "/*.png");
+
+            foreach($images as $image)
+            {
+              echo "<div>";
+                echo "<img src='".$image."' alt='retailer logo' />";
+              echo "</div>";
+            }
+          ?>
+        </div>
+      </div>
+    </section>
+
+    <section id="about-products" class="slide-main">
+      <div class="product-side-lemon rellax" data-rellax-speed="3"></div>
+      <div class="product-side-honey rellax" data-rellax-speed="-1"></div>
       <div class="about-products-main">
-        <h1>Organic lemonades created exclusively for y'alls taste buds.</h1>
+        <h2>Our famous 100% organic tea recipes for y’all and all y'alls taste.</h2>
+        <p class="subtitle">Made from simple ingredients and a whole lotta love. Original Sweet Teas, Semisweet Teas and Unsweet Teas in different flavors to enjoy.</p>
+        <a class="button" href="#" name="link to gallery">See All Flavors</a>
         <div class="about-products-main-image"></div>
-        <p class="subtitle">From a classic favorite to lemonades packed with an attitude, try one of four flavors today! Keep it Organic. Keep it Real.</p>
         <div class="center"></div>
       </div>
-      <div class="product-chart">
-        <!--<img src="images/home-about-chart.png">-->
-        <span class="chart-title">Our Flavors</span>
-        <table class="nutritional-chart">
-          <thead>
-            <tr>
-              <th>Flavor</th>
-              <th>Calories<span class="small-text">per serving</span></th>
-              <th>Sugar<span class="small-text">in grams(g)</span></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><span class="chart-flavor">Classic lemonade</span></td>
-              <td>150</td>
-              <td>37<sub>g</sub></td>
-            </tr>
-            <tr>
-              <td><span class="chart-flavor">Cranberry lime</span></td>
-              <td>160</td>
-              <td>37<sub>g</sub></td>
-            </tr>
-            <tr>
-              <td><span class="chart-flavor">Orange Mango</span></td>
-              <td>150</td>
-              <td>37<sub>g</sub></td>
-            </tr>
-            <tr>
-              <td><span class="chart-flavor">Pomegranate Blueberry</span></td>
-              <td>160</td>
-              <td>36<sub>g</sub></td>
-            </tr>
-          </tbody>
-        </table>
+    </section>
+
+    <section id="tour-photos" class="slide-main">
+      <div class="tour-photos-side-orange rellax" data-rellax-speed="-3"></div>
+      <div class="tour-photos-main">
+        <h2>Tour Photos</h2>
+        <div class="photos">
+          <div>
+            <a href="#">
+              <img src="images/tour-photo-1.jpg"  srcset="images/tour-photo-1.jpg 1x, images/tour-photo-1@2x.jpg 2x" alt="tour photo"/>
+            </a>
+          </div>
+          <div>
+            <a href="#">
+              <img src="images/tour-photo-2.jpg"  srcset="images/tour-photo-2.jpg 1x, images/tour-photo-2@2x.jpg 2x" alt="tour photo"/>
+            </a>
+          </div>
+          <div>
+            <a href="#">
+              <img src="images/tour-photo-3.jpg"  srcset="images/tour-photo-3.jpg 1x, images/tour-photo-3@2x.jpg 2x" alt="tour photo"/>
+            </a>
+          </div>
+        </div>
+        <a class="button" href="#" name="link to gallery">View All</a>
+        <div class="center"></div>
       </div>
     </section>
     <?php include 'footer.php'; ?>
