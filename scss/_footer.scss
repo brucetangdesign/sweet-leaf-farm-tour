@@ -1,6 +1,6 @@
 footer{
   @include prefixr(display,flex);
-  @include prefixr(align-items,center);
+  @include prefixr(align-items,flex-end);
   @include prefixr(justify-content,space-between);
   position: relative;
   left: 0;
@@ -8,16 +8,27 @@ footer{
   margin-left: auto;
   margin-right: auto;
   width: 100%;
+  min-height: 268px;
   z-index: 3000;
   padding: 0px getRem(25px) getRem(25px);
   max-width: $site-width-max;
   color: #FFFFFF;
 
-  &.fixed{
-    @include breakpoint(m-up){
-      position: fixed;
-      bottom: 0;
-    }
+  background: url('../images/footer-bg.svg');
+  background-repeat: repeat-x;
+  background-size: auto;
+
+  &:before{
+    content: '';
+    position: absolute;
+    background: url('../images/footer-windmill.svg');
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: contain;
+    bottom: 120px;
+    right: 20%;
+    width: 242px;
+    height: 215px;
   }
 
   p{
@@ -47,20 +58,71 @@ footer{
     }
   }
 
-  @include breakpoint(xs){
+  @include breakpoint(m-s){
+    min-height: 190px;
+
+    background-size: contain;
+    background-position: bottom;
+
+    &:before{
+      width: 172px;
+      height: 153px;
+      bottom: 85px
+    }
+  }
+
+  @include breakpoint(xs-680){
     @include prefixr(flex-wrap,wrap);
+    @include prefixr(align-items,center);
     @include prefixr(flex-direction,column-reverse);
+    @include prefixr(justify-content,flex-start);
+
+    min-height: 165px;
+
+    &:before{
+      width: 150px;
+      height: 133px;
+      bottom: 64px;
+      right: 0;
+    }
 
     .footer-social-menu{
-      margin-bottom: getRem(20px);
+      margin-bottom: getRem(36px);
+    }
+  }
+
+  @include breakpoint(xs){
+    background-size: 530px 156px;
+
+    &:before{
+      display: none;
+    }
+
+    .footer-social-menu{
+      margin-bottom: getRem(14px);
     }
   }
 }
 
-.footer-copyright-nav{
+ul.hr-list.footer-copyright-nav, .footer-copyright-nav{
   li{
     padding-left: 20px;
     padding-right: 20px;
+  }
+
+  @include breakpoint(xs){
+    text-align: center;
+
+    li:first-of-type{
+      display: block;
+      padding: 0;
+      margin-bottom: 5px;
+    }
+
+    li, li:last-of-type{
+      padding-left: 10px;
+      padding-right: 10px;
+    }
   }
 }
 

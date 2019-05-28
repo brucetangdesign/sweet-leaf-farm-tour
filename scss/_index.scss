@@ -4,66 +4,8 @@
   }
 }
 
-
-.nyc-bg, .skyline, .nyc-skyline-lemon{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-
-  background-repeat: no-repeat;
-}
-
-
-.skyline{
-  background-image: url('../images/slide-3-bg-skyline.png');
-  background-size: contain;
-  background-position: bottom;
-
-  @include breakpoint(m){
-    background-size: 150vw;
-  }
-
-  @include breakpoint(xs-680){
-    background-size: 300vw;
-  }
-}
-
-.lights{
-  width: 37.9vw;
-  height: 21vw;
-  max-width: getRem(485px);
-  max-height: getRem(268px);
-  background-image: url('../images/slide-3-bg-light.png');
-  background-size: contain;
-
-  &.reverse{
-    transform: scaleX(-1);
-    -webkit-transform: scaleX(-1);
-    left: auto;
-    right: 0;
-  }
-}
-
-.nyc-bg{
-  @include background-2x( '../images/nyc-bg', 'png', contain, auto, center bottom, no-repeat );
-
-  .bg-gradient1 &{
-    @include background-2x( '../images/nyc-bg-yellow', 'png', contain, auto, center bottom, no-repeat );
-  }
-
-  @include breakpoint(m){
-    background-size: 150vw;
-  }
-
-  @include breakpoint(xs-680){
-    background-size: 200vw;
-  }
-}
-
 .slide-main{
-  height: 100vh;
+  //height: 100vh;
   margin: auto;
   margin-bottom: 6rem;
   position: relative;
@@ -82,33 +24,8 @@
   }
 
   @include breakpoint(xs){
-    min-height: 100vh;
+    //min-height: 100vh;
     height: auto;
-  }
-
-  &.slide1{
-    padding-top: 150px;
-
-    @include breakpoint(xs-680){
-      padding-top: 80px;
-    }
-  }
-
-  &.slide3{
-    @include breakpoint(xs-680){
-      margin-bottom: 7rem;
-    }
-
-    .bg-graphics{
-      margin-top: 6rem;
-      background-image: url('../images/slide2-leaves-fruit.svg');
-    }
-  }
-
-  &.slide2{
-    .bg-graphics{
-      background-image: url('../images/slide3-stars.svg');
-    }
   }
 }
 
@@ -117,9 +34,13 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 98%;
   max-height: 1068px;
   @include background-2x( '../images/bg-feature-gradient', 'jpg', cover, auto, center top, no-repeat );
+
+  @include breakpoint(xs-680){
+      @include background-2x( '../images/bg-feature-gradient-mobile', 'jpg', contain, auto, center top, no-repeat );
+  }
 }
 
 .bg-feature-bushes{
@@ -128,10 +49,23 @@
   left: 0;
   width: 100%;
   height: 19vw;
-  max-height: 369px;
+  max-height: 339px;
   background-image: url('../images/bg-feature-bushes.svg');
   background-repeat: repeat-x;
-  background-size: 32vw;
+  background-size: 336vw;
+
+  @media (min-width: 1901px){
+    background-size: 6380px;
+    max-height: 312px;
+  }
+
+  @include breakpoint(s){
+    background-size: cover;
+  }
+
+  @include breakpoint(xs-680){
+    bottom: 81px;
+  }
 }
 
 .bg-feature-barn-container{
@@ -139,6 +73,17 @@
   top: 0;
   width: 50%;
   height: 100%;
+
+  @include breakpoint(m-l){
+    width: 41%;
+  }
+
+  @include breakpoint(xs-680){
+    width: 100%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+  }
 }
 
 .bg-feature-barn{
@@ -149,6 +94,15 @@
   background-repeat: no-repeat;
   background-size: cover;
   @include size-to-screen-width(544,343,0.4,1500px);
+
+  @include breakpoint(xxl){
+    right: 0;
+  }
+
+  @include breakpoint(xs-680){
+    @include size-to-screen-width(544,343,0.4,880px);
+    right: 10%;
+  }
 }
 
 .bg-feature-grass-container{
@@ -156,6 +110,13 @@
   bottom: 0;
   width: 50%;
   height: 100%;
+
+  @include breakpoint(xs-680){
+    width: 100%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+  }
 }
 
 .bg-feature-grass{
@@ -167,7 +128,12 @@
   background-size: cover;
   width: 544px;
   height: 53px;
-  //@include size-to-screen-width(555,54,0.4,1500px);
+
+  @include breakpoint(xs-680){
+    @include size-to-screen-width(544,53,0.4,880px);
+    right: 9%;
+    bottom: 71px;
+  }
 }
 
 
@@ -181,6 +147,14 @@
   background-image: url('../images/bg-feature-fence.svg');
   background-repeat: repeat-x;
   background-size: 1822px 56px;
+
+  @include breakpoint(s){
+    bottom: 49px;
+  }
+
+  @include breakpoint(xs-680){
+    bottom: 67px;
+  }
 }
 
 .bg-graphics{
@@ -197,16 +171,11 @@
   background-size: contain;
   background-position: center;
 
-  @include breakpoint(m-l){
-    width: 100vw;
-    background-size: 150vw;
-  }
-
   @include breakpoint(xs-680){
     width: 100vw;
     background-size: auto 75%;
 
-    .slide1 &{
+    #feature &{
       background-size: 150vw;
     }
   }
@@ -224,11 +193,6 @@
 
   @include breakpoint(xs-680){
     @include prefixr(flex-direction,column);
-
-    &.slide1{
-      padding-top: 0;
-      //margin-top: -40px;
-    }
   }
 }
 
@@ -246,14 +210,6 @@
     height: 54vh;
     margin-bottom: 20px;
   }
-
-  .slide1 &{
-    @include prefixr(justify-content,center);
-  }
-
-  .slide2 &{
-    @include prefixr(justify-content,flex-end);
-  }
 }
 
 ul.feature-hashtags{
@@ -263,6 +219,16 @@ ul.feature-hashtags{
   letter-spacing: -1.5px;
   padding-left: getRem(22px);
   padding-top: getRem(5px);
+
+  @include breakpoint(m-s){
+    font-size: getRem(17px);
+    padding-left: getRem(13px);
+  }
+
+  @include breakpoint(xs-680){
+    padding-left: 0;
+    text-align: center;
+  }
 
   span{
     color: $sl-red;
@@ -291,6 +257,19 @@ ul.feature-hashtags{
   background-repeat: no-repeat;
 
   @include size-to-screen-width(860,568,0.4,1500px);
+
+  @include breakpoint(xs-680){
+    margin: auto;
+    top: -45px;
+    left: -23px;
+    right: 0;
+    transform: none !important;
+    -webkit-transform: none !important;
+  }
+
+  @include breakpoint(xs){
+    top: -30px;
+  }
 }
 
 .slide-image{
@@ -309,35 +288,6 @@ ul.feature-hashtags{
     max-height: 100vh;
     height: 100%;
   }
-
-  .slide1 &{
-    @include background-2x( '../images/feature-luke', 'png', contain, auto, center top, no-repeat );
-    @include size-to-screen-width(610,818,0.4,1500px);
-  }
-
-  .slide3 &{
-    max-width: 835px;
-    @include background-2x( '../images/slide-ingredients', 'png', contain, auto, center, no-repeat );
-
-    @include breakpoint(s){
-      @include background-2x( '../images/slide-ingredients-mobile', 'png', contain, auto, center, no-repeat );
-      background-size: contain !important;
-    }
-
-    @include breakpoint(xs-680){
-      //background-position: bottom;
-      background-size: contain !important;
-    }
-  }
-
-  .slide2 &{
-    @include breakpoint(xs-680-up){
-      @include size-to-screen-width(585,614,0.8);
-      min-width: 100% !important;
-    }
-    @include background-2x( '../images/slide-mimi', 'png', contain, auto, center, no-repeat );
-  }
-
 }
 
 .slide-copy{
@@ -363,19 +313,64 @@ ul.feature-hashtags{
 
 
 //Slide 1 and about are exceptions to the layout
-.slide-main.slide1{
+#feature.slide-main, #feature{
   height: auto;
-  margin-bottom: 200px;
+  padding-top: 150px;
+  margin-bottom: 8rem;
+
+  @include breakpoint(m-s){
+    margin-bottom: 5rem;
+  }
+
+  @include breakpoint(xs-680){
+    margin-bottom: 1rem;
+    padding-top: 80px;
+  }
+
+  @include breakpoint(xs){
+    margin-bottom: 0;
+  }
+
+  .slide-content{
+    @include breakpoint(xs-680){
+      @include prefixr(flex-direction, column-reverse);
+      @include prefixr(align-items, center);
+      padding-top: 0;
+    }
+  }
 
   .slide-image-container{
     width: 50%;
+    @include prefixr(justify-content,center);
+
+    @include breakpoint(m-l){
+      width: 45%;
+    }
+
+    @include breakpoint(m-s){
+      margin-top: 121px;
+    }
 
     @include breakpoint(xs-680){
       height: auto;
+      width: 100%;
+      margin-top: 25px;
+    }
+
+    @include breakpoint(xs){
+      margin-top: 15px;
     }
   }
 
   .slide-image{
+    @include background-2x( '../images/feature-luke', 'png', contain, auto, center top, no-repeat );
+    @include size-to-screen-width(610,818,0.4,1500px);
+
+    @include breakpoint(xs-680){
+      @include size-to-screen-width(610,818,0.5,1080px);
+    }
+
+
     @include breakpoint(xs-680){
       background-position: top;
     }
@@ -387,6 +382,15 @@ ul.feature-hashtags{
     padding-left: 0;
     text-align: center;
     margin-bottom: 2rem;
+
+    @include breakpoint(m-l){
+      width: 55%;
+    }
+
+    @include breakpoint(xs-680){
+      width: 100%;
+      margin-top: 56px;
+    }
 
     > *{
       position: relative;
@@ -466,16 +470,138 @@ ul.feature-hashtags{
   }
 }
 
+#tour-stops{
+  background: url("../images/bg-tour-stops.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top;
+  margin-bottom: 8rem;
+
+  .bg-graphics{
+    background-image: url('../images/tour-stops-stars.svg');
+  }
+
+  .slide-content{
+    display: block;
+    text-align: center;
+  }
+
+  .slide-image-container{
+    width: 100%;
+
+    .slide-image.tour-map{
+      width: 100%;
+      max-width: 1314px;
+
+      img{
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+}
+
+
+.tour-schedule-container{
+  position: relative;
+  z-index: 200;
+  h2{
+    margin: getRem(40px) 0;
+  }
+}
+
+$tour-star-path: "%3Cpath class='st0' d='M10.2,3.7c-0.1-0.2-0.3-0.4-0.6-0.4l-3,0L5.7,0.4C5.6,0.2,5.4,0,5.1,0C4.9,0,4.7,0.2,4.6,0.4l-1,2.8l-3,0	C0.3,3.2,0.1,3.4,0,3.6c-0.1,0.2,0,0.5,0.2,0.7l2.4,1.8l-1,2.8c-0.1,0.2,0,0.5,0.2,0.7c0.2,0.2,0.5,0.2,0.7,0L5,7.9l2.4,1.8 c0.1,0.1,0.2,0.1,0.4,0.1c0.1,0,0.2,0,0.4-0.1C8.4,9.5,8.5,9.3,8.4,9L7.5,6.1l2.5-1.7C10.2,4.3,10.2,4,10.2,3.7z'%2F%3E";
+
+.tour-star{
+  position: absolute;
+  width: (31 / 1314) * 100%;
+  height: (28 / 880) * 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+
+  &.farm-stop{
+    background-image: url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 10.2 9.8' style='enable-background:new 0 0 10.2 9.8;' xml:space='preserve'%3E %3Cstyle type='text/css'%3E.st0%7Bfill:%23ED1C24;%7D%3C%2Fstyle%3E" + $tour-star-path + "%3C%2Fsvg%3E");
+  }
+
+  &.other-stop{
+    background-image: url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 10.2 9.8' style='enable-background:new 0 0 10.2 9.8;' xml:space='preserve'%3E %3Cstyle type='text/css'%3E.st0%7Bfill:%23370000;%7D%3C%2Fstyle%3E" + $tour-star-path + "%3C%2Fsvg%3E");
+  }
+}
+
+//MAP STAR COORDINATES
+#louisburg-ks{
+  left: 54%;
+  top: 49%;
+}
+//
+.austin-stamp{
+  position: absolute;
+  z-index: 2;
+  left: 1rem;
+  top: 16vh;
+
+  @include background-2x( '../images/austin-stamp', 'png', contain, auto, center top, no-repeat );
+  @include size-to-screen-width(174,174,0.6,1900px);
+
+  @include breakpoint(xs-680){
+    left: 1rem;
+    top: 25vh;
+
+  }
+}
+
+.cactus{
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  top: 90px;
+
+  @include size-to-screen-width(189,378,0.2,2400px);
+
+  @include background-2x( '../images/cactus', 'png', contain, auto, center top, no-repeat );
+
+  &:not(.reverse){
+    @media (min-width: 1550px){
+      top: 90px;
+    }
+
+    @media (max-width: 1549px){
+      top: 23%;
+    }
+
+    @include breakpoint(m-l){
+      top: 31%;
+    }
+  }
+
+  &.reverse{
+    transform: scaleX(-1);
+    @include size-to-screen-width(150,300,0.2,2400px);
+    right: auto !important;
+    left: -1rem;
+    top: 350px;
+  }
+}
+
 #retailers{
     text-align: center;
     padding-left: 2rem;
     padding-right: 2rem;
     height: auto;
-    margin-bottom: 11rem;
+    margin-bottom: 10rem;
 
     > *{
       margin-left: auto;
       margin-right: auto;
+    }
+
+    @include breakpoint(m-l){
+      margin-bottom: 6.5rem;
+    }
+
+    @include breakpoint(xs-680){
+      margin-bottom: 1rem;
     }
 }
 
@@ -561,8 +687,16 @@ ul.feature-hashtags{
   height: auto;
   text-align: center;
 
-  @include breakpoint(xs-680-up){
-    margin-bottom: 11rem;
+  @include breakpoint(m-up){
+    padding-bottom: 11rem;
+  }
+
+  @include breakpoint(m){
+    padding-bottom: 6.5rem;
+  }
+
+  @include breakpoint(xs-680){
+    padding-bottom: 0;
   }
 
   h1{
@@ -722,17 +856,33 @@ ul.feature-hashtags{
 .product-side-lemon{
   position: absolute;
   right: 0;
-  bottom: -100px;
+  bottom: 0px;
   @include background-2x( '../images/product-side-lemon', 'png', contain, auto, center center, no-repeat );
-  @include size-to-screen-width(280,231,0.5);
+  @include size-to-screen-width(280,231,0.3);
+
+  @include breakpoint(xs-680){
+    display: none;
+  }
 }
 
 .product-side-honey{
   position: absolute;
   left: 0;
-  top: 10%;
+  top: 185px;
   @include background-2x( '../images/product-side-honey', 'png', contain, auto, center center, no-repeat );
-  @include size-to-screen-width(250,282,0.5);
+  @include size-to-screen-width(250,282,0.3);
+
+  @include breakpoint(s){
+    top: 150px;
+  }
+
+  @include breakpoint(xs-680){
+    top: 200px;
+  }
+
+  @include breakpoint(xs){
+    display: none;
+  }
 }
 
 #tour-photos.slide-main{
@@ -752,7 +902,7 @@ ul.feature-hashtags{
   }
 
   .photos{
-    margin-top: 50px;
+    margin-top: getRem(50px);
     @include prefixr(display,flex);
     @include prefixr(justify-content,center);
 
@@ -760,6 +910,46 @@ ul.feature-hashtags{
       position: relative;
       padding-left: 10px;
       padding-right: 10px;
+
+      a,img{
+        display: block;
+        position: relative;
+        transition: all 0.2s;
+        -webkit-transition: all 0.2s;
+      }
+
+      a{
+        -webkit-box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.2);
+        -moz-box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.2);
+        box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.2);
+
+        &:after{
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          -webkit-box-shadow: inset 0px 0px 0px 7px rgba(255,255,255,1);
+          -moz-box-shadow: inset 0px 0px 0px 7px rgba(255,255,255,1);
+          box-shadow: inset 0px 0px 0px 7px rgba(255,255,255,1);
+
+          transition: all 0.2s;
+          -webkit-transition: all 0.2s;
+        }
+
+        &:hover{
+          &:after{
+            -webkit-box-shadow: inset 0px 0px 0px 16px rgba(255,255,255,1);
+            -moz-box-shadow: inset 0px 0px 0px 16px rgba(255,255,255,1);
+            box-shadow: inset 0px 0px 0px 16px rgba(255,255,255,1);
+          }
+
+          img{
+            filter: brightness(1.3) contrast(110%);
+          }
+        }
+      }
 
       &:first-of-type{
         padding-left: 0;
@@ -769,6 +959,27 @@ ul.feature-hashtags{
       &:last-of-type{
         padding-right: 0;
         padding-left: 20px;
+      }
+    }
+
+    @include breakpoint(xs-680){
+      margin-top: getRem(35px);
+
+      > div:nth-child(n+3){
+        display: none;
+      }
+    }
+
+    @include breakpoint(xs){
+      @include prefixr(flex-wrap,wrap);
+      > div{
+        width: 100%;
+        padding: 0;
+        margin-top: 20px;
+
+        &:first-of-type{
+          margin-top: 0;
+        }
       }
     }
 
@@ -783,7 +994,7 @@ ul.feature-hashtags{
   left: 0;
   bottom: -180px;
   @include background-2x( '../images/tour-photos-side-orange', 'png', contain, auto, center center, no-repeat );
-  @include size-to-screen-width(169,287,0.5);
+  @include size-to-screen-width(169,287,0.3);
 }
 
 .center{

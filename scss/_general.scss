@@ -41,12 +41,12 @@ h1{
   }
 
   @include breakpoint(m){
-    font-size: getRem(49px);
+    font-size: getRem(41px);
     margin: 0.75rem 0;
   }
 
   @include breakpoint(s){
-    font-size: getRem(41px);
+    font-size: getRem(38px);
     margin: 0.5rem 0;
   }
 

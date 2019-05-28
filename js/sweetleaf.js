@@ -1,4 +1,30 @@
 $( document ).ready(function() {
+  var tourMap = $(".tour-map");
+
+  setMapSize();
+
+  $(window).on("resize", function(){
+    setMapSize();
+  });
+
+  function setMapSize(){
+    var newSc;
+    var perc = 0.95;
+    var aspectRatio = 880/1314;
+
+    if(window.innerWidth < 1500){
+      TweenMax.set(tourMap,{scale: perc});
+      if(tourMap.find("img").height() > 0){
+        TweenMax.set(tourMap.parent(),{height: tourMap.find("img").height() * perc});
+      }
+    }
+    else{
+      console.log("f");
+      TweenMax.set(tourMap,{scale: 1});
+      TweenMax.set(tourMap.parent(),{height: "auto"});
+    }
+  }
+
   /*var numBreakpoints = $(".slide-main").length;
   var sec1 = true;
   var sec2 = false;

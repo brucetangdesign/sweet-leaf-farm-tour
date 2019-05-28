@@ -3,6 +3,29 @@ $( document ).ready(function() {
   var $header = $("header");
   var $logo = $header.find(".logo-container");
 
+  //smooth scroll to anchor link (this moves section down a bit so it doesn't overlap with header)
+  if (location.hash) {
+    setTimeout(function() {
+      scrollToSection($(location.hash));
+    }, 1);
+  }
+
+  //handle anchor links
+  $("nav li > a").each(function(index){
+      if($(this).attr("href").indexOf("#") == 0){
+        $(this).click(function(e){
+          e.preventDefault();
+          history.pushState(null,null,$(this).attr("href"));
+          scrollToSection($($(this).attr("href")),700);
+        });
+      }
+  });
+
+  //smooth scroll for anchor links
+  function scrollToSection($section, time=1000){
+    $("html, body").animate({ scrollTop:$section.position().top - $("header").height() - 50  },time);
+  }
+
   //check page scroll on page load (will show mobile nav if necessary)
   checkScroll();
 

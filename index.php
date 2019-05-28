@@ -43,7 +43,7 @@ $page = "home-page";
     <?php include 'header.php'; ?>
 
     <!-- Main Slides -->
-    <section class="slide-main slide1">
+    <section id="feature" class="slide-main">
       <div class="bg-feature-gradient"></div>
       <div class="bg-feature-bushes"></div>
       <div class="bg-feature-barn-container">
@@ -78,42 +78,27 @@ $page = "home-page";
         </div>
       </div>
     </section>
-    <!--
-    <section class="slide-main slide2">
-      <div class="mimi-clouds-left rellax" data-rellax-speed="4"></div>
-      <div class="mimi-clouds-right rellax" data-rellax-speed="-3"></div>
-      <div class="mimi-left-lem-blueberry rellax" data-rellax-speed="-1"></div>
-      <div class="mimi-left-pom-lem-orange rellax" data-rellax-speed="1"></div>
-      <div class="mimi-right-lime-mango rellax" data-rellax-speed="-3"></div>
-      <div class="mimi-right-orange-cran rellax" data-rellax-speed="3"></div>
-      <div class="center"></div>
-      <div class="slide-content">
-        <div class="slide-image-container" data-rellax-speed="1">
-          <div class="slide-image"></div>
-        </div>
-        <div class="slide-copy rellax" data-rellax-speed="-2">
-          <h1>What's both sour and sweet all at once?</h1>
-          <p class="subtitle">No, not me! My new lemonades! Growing up in Austin, we always grew the finest fruit with the sweetest juice that we'd pour over ice to get us through those summer days.<br><br>And don't worry... just like my Organic Iced Teas, you'll still find the same love in every bottle, and only ingredients that you can pronounce, like organic lemon juice and organic cane sugar. You know me, I like keeping things sweet and simple.</p>
-        </div>
-      </div>
-    </section>
 
-    <section class="slide-main slide3">
-      <div class="ingredients-clouds-left rellax" data-rellax-speed="-4"></div>
-      <div class="ingredients-clouds-right rellax" data-rellax-speed="3"></div>
-      <div class="ingredients-right-lem rellax" data-rellax-speed="-1"></div>
+    <section id="tour-stops" class="slide-main">
+      <div class="bg-graphics rellax" data-rellax-speed="-2" data-rellax-percentage="0.5"></div>
+      <div class="austin-stamp rellax" data-rellax-speed="2" data-rellax-percentage="0.5"></div>
+      <div class="cactus rellax" data-rellax-speed="2" data-rellax-percentage="0.5"></div>
+      <div class="cactus reverse"></div>
       <div class="center"></div>
       <div class="slide-content">
-        <div class="slide-image-container" data-rellax-speed="3">
-          <div class="slide-image"></div>
+        <div class="slide-image-container">
+          <div class="slide-image tour-map">
+            <!--<div class="tour-map"></div>-->
+            <img src="images/tour-map.svg" />
+            <div id="louisburg-ks" class=" tour-star farm-stop"></div>
+          </div>
         </div>
-        <div class="slide-copy rellax" data-rellax-speed="2">
-          <h1>Organic from day one!</h1>
-          <p class="subtitle">Made with simple ingredients and a whole lotta love. We wouldn't make our Lemonades any other way!</p>
+        <div class="tour-schedule-container">
+          <h2>Select a Stop on the Map</h2>
+          <a class="button" href="#">View Full Schedule</a>
         </div>
       </div>
     </section>
--->
 
     <section id="retailers" class="slide-main">
       <div class="retailer-content">
