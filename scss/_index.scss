@@ -207,7 +207,6 @@
   @include breakpoint(xs-680){
     @include prefixr(justify-content,center);
     width: 100%;
-    height: 54vh;
     margin-bottom: 20px;
   }
 }
@@ -477,8 +476,19 @@ ul.feature-hashtags{
   background-position: top;
   margin-bottom: 8rem;
 
+  @include breakpoint(xs-680){
+    margin-bottom: 3rem;
+  }
+
   .bg-graphics{
     background-image: url('../images/tour-stops-stars.svg');
+    background-position: top;
+    background-size: contain !important;
+    width: 90vw !important;
+
+    @include breakpoint(xs){
+      transform: none !important;
+    }
   }
 
   .slide-content{
@@ -488,25 +498,27 @@ ul.feature-hashtags{
 
   .slide-image-container{
     width: 100%;
+    @include prefixr(flex-wrap, wrap);
 
     .slide-image.tour-map{
       width: 100%;
       max-width: 1314px;
+      height: auto;
+      transform-origin: top;
+
+      .tour-star{
+        cursor: pointer;
+      }
 
       img{
         display: block;
         width: 100%;
       }
+
+      @include breakpoint(xs-680){
+        height: auto;
+      }
     }
-  }
-}
-
-
-.tour-schedule-container{
-  position: relative;
-  z-index: 200;
-  h2{
-    margin: getRem(40px) 0;
   }
 }
 
@@ -529,25 +541,464 @@ $tour-star-path: "%3Cpath class='st0' d='M10.2,3.7c-0.1-0.2-0.3-0.4-0.6-0.4l-3,0
   }
 }
 
-//MAP STAR COORDINATES
-#louisburg-ks{
-  left: 54%;
-  top: 49%;
+#map-key{
+  position: absolute;
+  bottom: 20px;
+  right: 20%;
+  font-family: "Farao Black";
+  font-size: getRem(20px);
+  text-align: left;
+
+  > div{
+    @include prefixr(display, flex);
+    @include prefixr(align-items, center);
+
+    &:first-of-type{
+      margin-bottom: getRem(8px);
+    }
+  }
+
+  span{
+    width: 31px;
+    height: 28px;
+    position: relative;
+    display: inline-block;
+    margin-right: 7px;
+  }
+
+  @include breakpoint(m-l){
+    bottom: 0;
+    right: 16%;
+    font-size: getRem(18px);
+    span{
+      width: 27px;
+      height: 24px;
+    }
+  }
+
+  @include breakpoint(m-s){
+    position: relative;
+    bottom: auto;
+    right: 0;
+    left: 0;
+    margin: auto;
+
+    > div{
+      @include prefixr(display, inline-flex);
+      &:first-of-type{
+        margin-right: 14px;
+        margin-bottom: auto;
+      }
+      &:last-of-type{
+        margin-left: 14px;
+      }
+    }
+
+    span{
+      margin-right: 5px;
+    }
+  }
+
+  @include breakpoint(xs){
+    > div{
+      @include prefixr(display, flex);
+
+      &:first-of-type{
+        margin-right: 0;
+        margin-bottom: 6px;
+      }
+
+      &:last-of-type{
+        margin-left: 0;
+      }
+    }
+  }
 }
-//
+
+#tour-info-modal{
+  position: absolute;
+  z-index: 200000;
+  width: auto;
+
+  .location-box{
+    padding-left: getRem(58px);
+    padding-right: getRem(58px);
+
+    .close-bt{
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+
+      background: url("../images/location-box-close-bt.svg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+
+      width: 25px;
+      height: 25px;
+    }
+  }
+
+  a.button{
+    margin-top: getRem(20px);
+  }
+}
+
+.location-images{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+
+  > div{
+    position: absolute;
+    border: 5px solid #FFFFFF;
+    -webkit-box-shadow: 0px 0px 16px 4px rgba(0,0,0,0.35);
+    -moz-box-shadow: 0px 0px 16px 4px rgba(0,0,0,0.35);
+    box-shadow: 0px 0px 16px 4px rgba(0,0,0,0.35);
+    background-color: #EEEEEE;
+
+    img{
+      opacity: 0;
+      width: 100%;
+    }
+  }
+
+  .img1, .img2{
+    width: 173px;
+    height: 215px;
+
+    @include breakpoint(m-s){
+      width: (173 * 0.74) + 0px;;
+      height: (215 * 0.74) + 0px;
+    }
+  }
+
+  .img1{
+      transform: rotate(16deg);
+      -webkit-transform: rotate(16deg);
+      z-index: 30002;
+      top: -216px;
+      left: -54px;
+
+      @include breakpoint(m-s){
+        top: -168px;
+        left: -45px;
+      }
+  }
+
+  .img2{
+      transform: rotate(-21deg);
+      -webkit-transform: rotate(-21deg);
+      z-index: 30001;
+      top: -63px;
+      left: -218px;
+
+      @include breakpoint(m-s){
+        top: -45px;
+        left: -161px;
+      }
+  }
+
+  .img3{
+      transform: rotate(16deg);
+      -webkit-transform: rotate(16deg);
+      width: 146px;
+      height: 181px;
+      z-index: 30000;
+      top: 223px;
+      left: -92px;
+
+      @include breakpoint(m-s){
+        width: (146 * 0.74) + 0px;
+        height: (181 * 0.74) + 0px;
+
+        top: 185px;
+        left: -70px;
+      }
+  }
+}
+
+.loading-spinner{
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 45%;
+  background: url("../images/loading-spinner.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 25px;
+  height: 25px;
+  animation-iteration-count: infinite;
+  animation-name: spin;
+  animation-duration: 0.4s;
+  animation-timing-function: linear;
+}
+
+@keyframes spin{
+  0%{
+    transform: rotate(0);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
+.tour-schedule-container{
+  position: relative;
+  z-index: 200;
+  h2{
+    margin: getRem(40px) 0;
+  }
+}
+
+#tour-schedule{
+  max-width: 920px;
+  width: 100%;
+  margin: 0 auto 70px;
+  position: relative;
+
+  h3{
+    font-family: "Vision Heavy";
+    font-size: getRem(27px);
+    display: inline;
+  }
+
+  .chart-leaves-left, .chart-leaves-right, .honeycomb{
+    opacity: 1;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    transition: opacity 0.6s;
+    -webkit-transition: opacity 0.6s;
+    transition-delay: 0.2s;
+    -webkit-transition-delay: 0.2s;
+
+    &.opacity-0{
+      transition: opacity 0.4s;
+      -webkit-transition: opacity 0.4s;
+    }
+  }
+
+  .chart-leaves-left{
+    background-image: url('../images/chart-leaves-left.png');
+    width: 12.95vw;
+    height: 12.6vw;
+    max-width: getRem(154px);
+    max-height: getRem(150px);
+    left: -116px;
+    bottom: -43px;
+    z-index: 3;
+
+    @include breakpoint(m-l){
+      left: -9.75vw;
+      bottom: -3.6vw;
+    }
+  }
+
+  .chart-leaves-right{
+    background-image: url('../images/chart-leaves-right.png');
+    width: 20.5vw;
+    height: 12.27vw;
+    max-width: getRem(244px);
+    max-height: getRem(146px);
+    right: -121px;
+    bottom: -58px;
+    z-index: 3;
+
+    @include breakpoint(m-l){
+      right: -10.17vw;
+      bottom: -4.878vw;
+    }
+  }
+
+  .honeycomb{
+    @include background-2x( '../images/honeycomb', 'png', contain, auto, center center, no-repeat );
+    width: 15.9vw;
+    height: 13.54vw;
+    max-width: getRem(189px);
+    max-height: getRem(161px);
+    left: -113px;
+    bottom: 0;
+    z-index: 0;
+
+    @include breakpoint(m-l){
+      left: -9.75vw;
+    }
+  }
+
+  @include breakpoint (xs-680){
+    width: 100%;
+    margin-bottom: 35px;
+
+    .chart-leaves-left, .chart-leaves-right, .honeycomb{
+      display: none;
+    }
+  }
+}
+
+.tour-truck{
+  @include background-2x( '../images/tour-schedule-truck', 'png', contain, auto, center top, no-repeat );
+  @include size-to-screen-width(101,77,0.6,1200px);
+  margin: auto;
+}
+
+.tour-table{
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.schedule-header{
+  text-align: center;
+  color: #FFFFFF;
+  background-color: $sl-red;
+  padding: getRem(30px);
+
+  text-transform: uppercase;
+}
+
+.schedule-body{
+  position: relative;
+  @include prefixr(display, flex);
+  @include prefixr(flex-wrap, wrap);
+  text-align: left;
+
+  > div{
+    width: 50%;
+  }
+
+  &:after{
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    width: 3px;
+    height: 100%;
+    background-color: #FFFFFF;
+  }
+
+  @include breakpoint(xs-680-up){
+    background-color: #FFFFFF;
+  }
+
+  @include breakpoint(xs-680){
+    text-align: center;
+
+    > div{
+      width: 100%;
+      &:first-of-type{
+        margin-bottom: 15px;
+      }
+    }
+
+    .empty-date{
+      display: none;
+    }
+
+    &:after{
+      display: none;
+    }
+  }
+}
+
+.schedule-content{
+  @include prefixr(display, flex);
+  @include prefixr(flex-wrap, wrap);
+  @include prefixr(align-items, center);
+
+  .dates-header{
+    @include prefixr(display, flex);
+    @include prefixr(align-items, center);
+
+    span{
+      position: relative;
+      display: inline-block;
+      width: 31px;
+      height: 28px;
+      margin-right: getRem(8px);
+    }
+
+    @include breakpoint(xs-680){
+      @include prefixr(justify-content, center);
+    }
+  }
+
+  > div{
+    width: 100%;
+    padding: getRem(21px) getRem(33px);
+
+    &.empty-date{
+      span, p{
+        opacity: 0;
+      }
+    }
+  }
+
+  .date, p{
+    font-family: "Vision Bold";
+    letter-spacing: -1px;
+  }
+
+  .date{
+    font-size: getRem(27px);
+  }
+
+  p{
+    margin-top: 4px;
+    margin-bottom: 0;
+  }
+}
+
+.farm-dates{
+  > div{
+    &:nth-child(odd){
+      background-color: #fdf4dc;
+    }
+
+    &:nth-child(even){
+      background-color: #fcedc5;
+    }
+  }
+}
+
+.other-dates{
+  > div{
+    &:nth-child(odd){
+      background-color: #e2d5bb;
+    }
+
+    &:nth-child(even){
+      background-color: #c3b9a5;
+    }
+  }
+}
+
 .austin-stamp{
   position: absolute;
   z-index: 2;
   left: 1rem;
-  top: 16vh;
+  top: 0;
 
   @include background-2x( '../images/austin-stamp', 'png', contain, auto, center top, no-repeat );
-  @include size-to-screen-width(174,174,0.6,1900px);
+  @include size-to-screen-width(174,174,0.5,1900px);
 
   @include breakpoint(xs-680){
-    left: 1rem;
-    top: 25vh;
+    top: 0;
+  }
 
+  @include breakpoint(xs){
+    @include size-to-screen-width(174,174,0.36,1900px);
+    transform: none !important;
+    -webkit-transform: none !important;
+    top: -20px;
   }
 }
 
@@ -567,11 +1018,15 @@ $tour-star-path: "%3Cpath class='st0' d='M10.2,3.7c-0.1-0.2-0.3-0.4-0.6-0.4l-3,0
     }
 
     @media (max-width: 1549px){
-      top: 23%;
+      top: 10vw;
     }
 
     @include breakpoint(m-l){
-      top: 31%;
+      top: 13vw;
+    }
+
+    @include breakpoint(xs){
+      top: 5vw;
     }
   }
 
@@ -581,6 +1036,15 @@ $tour-star-path: "%3Cpath class='st0' d='M10.2,3.7c-0.1-0.2-0.3-0.4-0.6-0.4l-3,0
     right: auto !important;
     left: -1rem;
     top: 350px;
+
+    @include breakpoint(xs-680){
+      left: 0;
+      top: 256px;
+    }
+
+    @include breakpoint(xs){
+      top: 155px;
+    }
   }
 }
 

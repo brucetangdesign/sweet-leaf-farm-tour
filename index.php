@@ -6,6 +6,9 @@ $pageTitle = "Organic lemonade with an attitude made from simple ingredients you
 $meta_description = "Sweet Leaf Tea organic lemonades are available in Cranberry Lime, Orange Mango, Pomegranate Blueberry, and Classic Lemonade. Sweet but not too sweet.";
 
 $page = "home-page";
+
+//Tour Info
+include 'tour-info.php';
 ?>
 
 <html lang="en">
@@ -70,15 +73,16 @@ $page = "home-page";
           <img class="feature-logo" src="images/feature-logo-sweet-leaf.svg" />
           <h1 class="h1">Sweet For Luke</h1>
           <h4>Official Tea Sponsor of Luke Bryan Farm Tour 2019</h4>
-          <p class="subtitle">Join Sweet Leaf Tea as we go cross-country spreading all types of sweetness during the Luke Bryan 2019 Farm Tour! Bring a friend to our photo booths, enter to win some sweet prizes, and taste the sweet Austin goodness that is Mimi's original organic teas!</p>
+          <p class="subtitle">Join Sweet Leaf Tea as we go cross-country spreading all types of sweetness during the Luke Bryan 2019 tour dates! Bring a friend to our photo booths, enter to win some sweet prizes, and taste the sweet Austin goodness that is Mimi's original organic teas!</p>
           <div class="location-box">
             <p class="location-info">Our Next Stop:</p>
-            <p class="location-city">Nashville, TN</p>
+            <p class="location-city">Cincinnati, OH</p>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Tour Stops -->
     <section id="tour-stops" class="slide-main">
       <div class="bg-graphics rellax" data-rellax-speed="-2" data-rellax-percentage="0.5"></div>
       <div class="austin-stamp rellax" data-rellax-speed="2" data-rellax-percentage="0.5"></div>
@@ -88,18 +92,145 @@ $page = "home-page";
       <div class="slide-content">
         <div class="slide-image-container">
           <div class="slide-image tour-map">
-            <!--<div class="tour-map"></div>-->
             <img src="images/tour-map.svg" />
-            <div id="louisburg-ks" class=" tour-star farm-stop"></div>
+            <?php
+              //Place Stars on map
+              //Farm Stops
+              foreach ($farmStops as $i => $row){
+                echo "<div id='".$row['id']."' class='tour-star farm-stop' ";
+                  echo "style='".$row['map-coords']."' ";
+                  echo "data-city='".$row['city']."' ";
+                  echo "data-date='".$row['date']."' ";
+                  echo "data-farm='".$row['farm']."' ";
+
+
+                  //echo "data-imgs='".print_r($filesFound)."'";
+
+                  /*foreach($images as $image)
+                  {
+                    echo "<div>";
+                      echo "<img src='".$image."' alt='retailer logo' />";
+                    echo "</div>";
+                  }
+                  */
+
+
+                echo "></div>";
+              }
+              //Other Stops
+              foreach ($otherStops as $i => $row){
+                echo "<div id='".$row['id']."' class='tour-star other-stop' ";
+                  echo "style='".$row['map-coords']."' ";
+                  echo "data-city='".$row['city']."' ";
+                  echo "data-date='".$row['date']."' ";
+
+                  echo "data-imgs='";
+                  //Get all retailer images
+                  //Get all retailer images
+                  $directory = "images/map-photos";
+                  $images = glob($directory . "/*.jpg");
+                  $searchString = $row['id'];
+                  $filesFound = array();
+                  foreach($images as $image)
+                  {
+
+                      $name = pathinfo($image, PATHINFO_FILENAME);
+
+                      // determines if the search string is in the filename.
+                      if(strpos(strtolower($image), strtolower($searchString))) {
+                           echo .$image."'";
+                      }
+                  }
+                  echo "'";
+                echo "></div>";
+              }
+            ?>
+          </div>
+          <div id="map-key" class="hidden-680">
+            <div><span class="tour-star farm-stop"></span>Farm Tour Stops</div>
+            <div><span class="tour-star other-stop"></span>Other Stops</div>
+          </div>
+          <div id="tour-info-modal" class="hidden">
+            <div class="location-box">
+              <div class="close-bt"></div>
+              <p class="location-city">Cincinnati, OH</p>
+              <p class="location-info"> Sept 27<br>Farm</p>
+              <a class="button view-bt" a href="#">View</a>
+            </div>
+            <div class="location-images">
+              <div class="img1"><img src="" /><div class="loading-spinner"></div></div>
+              <div class="img2"><img src="" /><div class="loading-spinner"></div></div>
+              <div class="img3"><img src="" /><div class="loading-spinner"></div></div>
+            </div>
           </div>
         </div>
         <div class="tour-schedule-container">
-          <h2>Select a Stop on the Map</h2>
-          <a class="button" href="#">View Full Schedule</a>
+          <h2 class="hidden-680">Select a Stop on the Map</h2>
+          <div id="tour-schedule" class="hidden">
+            <div class="honeycomb decoration opacity-0"></div>
+            <div class="chart-leaves-left decoration opacity-0"></div>
+            <div class="chart-leaves-right decoration opacity-0"></div>
+            <div class="tour-truck"></div>
+            <div class="tour-table hidden">
+              <div class="schedule-header"><h3>Full Schedule</h3></div>
+              <div class="schedule-body">
+                <div class="schedule-content farm-dates">
+                  <div class="dates-header">
+                    <span class="tour-star farm-stop"></span><h3>Farm Tour Stops</h3>
+                  </div>
+                  <?php
+                    foreach ($farmStops as $i => $row){
+                      echo "<div id='schedule-".$row['id']."'>";
+                        echo "<span class='date'>".$row['date']."</span>";
+                        echo "<p>".$row['city']." / ".$row['farm'];
+                          if(strlen($row['ticket-link']) > 0){
+                            echo " / <a href='".$row['ticket-link']."'>Get Tickets</a>";
+                          }
+                        echo "</p>";
+                      echo "</div>";
+                    }
+
+                    if(count($farmStops) < count($otherStops)){
+                      $numBlankFields = count($otherStops) - count($farmStops);
+                      for ($i=0; $i < $numBlankFields; $i ++){
+                        echo "<div class='empty-date'><span class='date'>NA</span><p>NA</p></div>";
+                      }
+                    }
+                  ?>
+                </div>
+                <div class="schedule-content other-dates">
+                  <div class="dates-header">
+                    <span class="tour-star other-stop"></span><h3>Other Stops</h3>
+                  </div>
+                  <?php
+                    foreach ($otherStops as $i => $row){
+                      echo "<div id='schedule-".$row['id']."'>";
+                        echo "<span class='date'>".$row['date']."</span>";
+                        echo "<p>".$row['city'];
+                          if(strlen($row['ticket-link']) > 0){
+                            echo " / <a href='".$row['ticket-link']."'>Get Tickets</a>";
+                          }
+                        echo "</p>";
+                      echo "</div>";
+                    }
+
+                    if(count($otherStops) < count($farmStops)){
+                      $numBlankFields = count($farmStops) - count($otherStops);
+                      for ($i=0; $i < $numBlankFields; $i ++){
+                        echo "<div class='empty-date'><span class='date'>NA</span><p>NA</p></div>";
+                      }
+                    }
+                  ?>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a class="button view-schedule" href="#">View Full Schedule</a>
         </div>
       </div>
     </section>
 
+    <!-- Retailers -->
     <section id="retailers" class="slide-main">
       <div class="retailer-content">
         <p>Find Sweet Leaf Tea at the following retailers:</p>
@@ -120,6 +251,7 @@ $page = "home-page";
       </div>
     </section>
 
+    <!-- Sweet Leaf Product Info -->
     <section id="about-products" class="slide-main">
       <div class="product-side-lemon rellax" data-rellax-speed="3"></div>
       <div class="product-side-honey rellax" data-rellax-speed="-1"></div>
@@ -132,6 +264,7 @@ $page = "home-page";
       </div>
     </section>
 
+    <!-- Tour Photos -->
     <section id="tour-photos" class="slide-main">
       <div class="tour-photos-side-orange rellax" data-rellax-speed="-3"></div>
       <div class="tour-photos-main">
@@ -157,6 +290,7 @@ $page = "home-page";
         <div class="center"></div>
       </div>
     </section>
+
     <?php include 'footer.php'; ?>
   </body>
 </html>
