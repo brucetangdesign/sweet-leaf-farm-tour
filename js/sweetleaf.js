@@ -91,12 +91,12 @@ $( document ).ready(function() {
 
     $star.each(function(index){
       $(this).click(function(){
-        openLocationModal($(this).attr("id"), $(this).data("city"),$(this).data("date"),$(this).data("farm"),index);
+        openLocationModal($(this).attr("id"), $(this).data("city"),$(this).data("date"),$(this).data("farm"),$(this).data("imgs"),index);
       });
     });
   }
 
-  function openLocationModal(id,city,date,farm,index){
+  function openLocationModal(id,city,date,farm,imgs,index){
     var $modal = $("#tour-info-modal");
     var $city = $modal.find(".location-city");
     var $info = $modal.find(".location-info");

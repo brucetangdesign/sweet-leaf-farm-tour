@@ -103,16 +103,20 @@ include 'tour-info.php';
                   echo "data-date='".$row['date']."' ";
                   echo "data-farm='".$row['farm']."' ";
 
+                  //Get all map photos images
+                  echo "data-imgs='";
+                  $directory = "images/map-photos";
+                  $images = glob($directory . "/*.jpg");
+                  $searchString = $row['id'];
 
-                  //echo "data-imgs='".print_r($filesFound)."'";
-
-                  /*foreach($images as $image)
+                  foreach($images as $image)
                   {
-                    echo "<div>";
-                      echo "<img src='".$image."' alt='retailer logo' />";
-                    echo "</div>";
+                      // determines if the search string is in the filename.
+                      if(strpos(strtolower($image), strtolower($searchString))) {
+                           echo $image." ";
+                      }
                   }
-                  */
+                  echo "'";
 
 
                 echo "></div>";
@@ -124,21 +128,17 @@ include 'tour-info.php';
                   echo "data-city='".$row['city']."' ";
                   echo "data-date='".$row['date']."' ";
 
+                  //Get all map photos images
                   echo "data-imgs='";
-                  //Get all retailer images
-                  //Get all retailer images
                   $directory = "images/map-photos";
                   $images = glob($directory . "/*.jpg");
                   $searchString = $row['id'];
-                  $filesFound = array();
+
                   foreach($images as $image)
                   {
-
-                      $name = pathinfo($image, PATHINFO_FILENAME);
-
                       // determines if the search string is in the filename.
                       if(strpos(strtolower($image), strtolower($searchString))) {
-                           echo .$image."'";
+                           echo $image." ";
                       }
                   }
                   echo "'";
