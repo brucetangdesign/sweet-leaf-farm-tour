@@ -76,7 +76,15 @@ include 'tour-info.php';
           <p class="subtitle">Join Sweet Leaf Tea as we go cross-country spreading all types of sweetness during the Luke Bryan 2019 tour dates! Bring a friend to our photo booths, enter to win some sweet prizes, and taste the sweet Austin goodness that is Mimi's original organic teas!</p>
           <div class="location-box">
             <p class="location-info">Our Next Stop:</p>
-            <p class="location-city">Cincinnati, OH</p>
+            <p class="location-city">
+              <?php
+              foreach ($tourStops as $i => $row){
+                if(isset($row['closest-date'])){
+                  echo $row['city'];
+                }
+              }
+              ?>
+            </p>
           </div>
         </div>
       </div>
@@ -96,12 +104,23 @@ include 'tour-info.php';
             <?php
               //Place Stars on map
               //Farm Stops
-              foreach ($farmStops as $i => $row){
-                echo "<div id='".$row['id']."' class='tour-star farm-stop' ";
+              foreach ($tourStops as $i => $row){
+                echo "<div id='".$row['id']."' class='";
+                if (isset($row['closest-date'])) {
+                  echo "next-date ";
+                }
+                echo "tour-star";
+                  if (isset($row['farm'])) {
+                    echo " farm-stop'";
+                    echo "data-farm='".$row['farm']."' ";
+                  }
+                  else{
+                    echo " other-stop'";
+                  }
+
                   echo "style='".$row['map-coords']."' ";
                   echo "data-city='".$row['city']."' ";
                   echo "data-date='".$row['date']."' ";
-                  echo "data-farm='".$row['farm']."' ";
 
                   //Get all map photos images
                   echo "data-imgs='";
@@ -121,29 +140,7 @@ include 'tour-info.php';
 
                 echo "></div>";
               }
-              //Other Stops
-              foreach ($otherStops as $i => $row){
-                echo "<div id='".$row['id']."' class='tour-star other-stop' ";
-                  echo "style='".$row['map-coords']."' ";
-                  echo "data-city='".$row['city']."' ";
-                  echo "data-date='".$row['date']."' ";
 
-                  //Get all map photos images
-                  echo "data-imgs='";
-                  $directory = "images/map-photos";
-                  $images = glob($directory . "/*.jpg");
-                  $searchString = $row['id'];
-
-                  foreach($images as $image)
-                  {
-                      // determines if the search string is in the filename.
-                      if(strpos(strtolower($image), strtolower($searchString))) {
-                           echo $image." ";
-                      }
-                  }
-                  echo "'";
-                echo "></div>";
-              }
             ?>
           </div>
           <div id="map-key" class="hidden-680">
@@ -179,19 +176,27 @@ include 'tour-info.php';
                     <span class="tour-star farm-stop"></span><h3>Farm Tour Stops</h3>
                   </div>
                   <?php
-                    foreach ($farmStops as $i => $row){
-                      echo "<div id='schedule-".$row['id']."'>";
-                        echo "<span class='date'>".$row['date']."</span>";
-                        echo "<p>".$row['city']." / ".$row['farm'];
-                          if(strlen($row['ticket-link']) > 0){
-                            echo " / <a href='".$row['ticket-link']."'>Get Tickets</a>";
-                          }
-                        echo "</p>";
-                      echo "</div>";
+                    $numFarms = 0;
+                    $numOthers = 0;
+                    foreach ($tourStops as $i => $row){
+                      if (isset($row['farm'])) {
+                        $numFarms += 1;
+                        echo "<div id='schedule-".$row['id']."'>";
+                          echo "<span class='date'>".$row['date']."</span>";
+                          echo "<p>".$row['city']." / ".$row['farm'];
+                            if(strlen($row['ticket-link']) > 0){
+                              echo " / <a href='".$row['ticket-link']."'>Get Tickets</a>";
+                            }
+                          echo "</p>";
+                        echo "</div>";
+                      }
+                      else{
+                        $numOthers += 1;
+                      }
                     }
 
-                    if(count($farmStops) < count($otherStops)){
-                      $numBlankFields = count($otherStops) - count($farmStops);
+                    if($numFarms < $numOthers){
+                      $numBlankFields = $numOthers - $numFarms;
                       for ($i=0; $i < $numBlankFields; $i ++){
                         echo "<div class='empty-date'><span class='date'>NA</span><p>NA</p></div>";
                       }
@@ -203,19 +208,27 @@ include 'tour-info.php';
                     <span class="tour-star other-stop"></span><h3>Other Stops</h3>
                   </div>
                   <?php
-                    foreach ($otherStops as $i => $row){
-                      echo "<div id='schedule-".$row['id']."'>";
-                        echo "<span class='date'>".$row['date']."</span>";
-                        echo "<p>".$row['city'];
-                          if(strlen($row['ticket-link']) > 0){
-                            echo " / <a href='".$row['ticket-link']."'>Get Tickets</a>";
-                          }
-                        echo "</p>";
-                      echo "</div>";
+                    $numFarms = 0;
+                    $numOthers = 0;
+                    foreach ($tourStops as $i => $row){
+                      if (!isset($row['farm'])) {
+                        $numOthers += 1;
+                        echo "<div id='schedule-".$row['id']."'>";
+                          echo "<span class='date'>".$row['date']."</span>";
+                          echo "<p>".$row['city'];
+                            if(strlen($row['ticket-link']) > 0){
+                              echo " / <a href='".$row['ticket-link']."'>Get Tickets</a>";
+                            }
+                          echo "</p>";
+                        echo "</div>";
+                      }
+                      else{
+                        $numFarms += 1;
+                      }
                     }
 
-                    if(count($otherStops) < count($farmStops)){
-                      $numBlankFields = count($farmStops) - count($otherStops);
+                    if($numOthers < $numFarms){
+                      $numBlankFields = $numFarms - $numOthers;
                       for ($i=0; $i < $numBlankFields; $i ++){
                         echo "<div class='empty-date'><span class='date'>NA</span><p>NA</p></div>";
                       }

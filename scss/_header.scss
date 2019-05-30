@@ -23,12 +23,12 @@ header{
     content: '';
     position: absolute;
     top: 0;
-    left: 0;
-    width: 100%;
+    left: 50%;
+    width: 100vw;
     height: 100%;
     background-color: $sl-red;
-    transform: translateY(-100%);
-    -webkit-transform: translateY(-100%);
+    transform: translateX(-50%) translateY(-100%);
+    -webkit-transform: translateX(-50%) translateY(-100%);
     transition: all 200ms ease-out;
     -webkit-transition: all 200ms ease-out;
 
@@ -42,8 +42,8 @@ header{
     padding: 10px 20px 9px;
 
     &:before{
-      transform: translateY(0);
-      -webkit-transform: translateY(0);
+      transform: translateX(-50%) translateY(0);
+      -webkit-transform: translateX(-50%) translateY(0);
       transition: all 300ms;
       -webkit-transition: all 300ms;
     }

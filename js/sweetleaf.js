@@ -2,9 +2,23 @@ $( document ).ready(function() {
   setMapSize();
   initSchedule();
   initMap();
+  var tourStopInit = false;
 
   $(window).on("resize", function(){
     setMapSize();
+    checkScheduleTableCellHeight();
+  });
+
+  if($("body").isInView($("#tour-stops"),700) && !tourStopInit){
+    $(".tour-map .next-date").trigger("click");
+    tourStopInit = true;
+  }
+
+  $(window).on("scroll", function(){
+    if($("body").isInView($("#tour-stops"),700) && !tourStopInit){
+      $(".tour-map .next-date").trigger("click");
+      tourStopInit = true;
+    }
   });
 
   function setMapSize(){
@@ -60,7 +74,7 @@ $( document ).ready(function() {
 
         scheduleOpen = true;
 
-        //scrollToSection($("#tour-schedule"),1000,true);
+        checkScheduleTableCellHeight();
       }
       else{
         TweenMax.to($tourSchedule,1,{css:{marginBottom: 0}});
@@ -86,12 +100,35 @@ $( document ).ready(function() {
     });
   }
 
+  function checkScheduleTableCellHeight(){
+    var $farmDates = $(".schedule-content.farm-dates");
+    var $otherDates = $(".schedule-content.other-dates");
+    var $other;
+    var largerHeight;
+
+    $farmDates.children().each(function(index){
+      $other = $otherDates.children().eq(index);
+      if($(this).height() != $other.height()){
+        largerHeight = Math.max($(this).height(), $other.height());
+        if($(this).height() != largerHeight){
+          $(this).height(largerHeight);
+        }
+
+        if($other.height() != largerHeight){
+          $other.height(largerHeight);
+        }
+      }
+    });
+  }
+
   function initMap(){
     var $star = $(".tour-map .tour-star");
 
     $star.each(function(index){
+      var thisIndex = index;
       $(this).click(function(){
         openLocationModal($(this).attr("id"), $(this).data("city"),$(this).data("date"),$(this).data("farm"),$(this).data("imgs"),index);
+        $(this).addClass("selected");
       });
     });
   }
@@ -147,6 +184,10 @@ $( document ).ready(function() {
     var $info = $modal.find(".location-info");
     var imgs = [$modal.find(".img1"),$modal.find(".img2"),$modal.find(".img3")];
     var $closeBt = $modal.find(".close-bt");
+
+    $(".tour-map .tour-star.selected").each(function(index){
+      $(this).removeClass("selected");
+    });
 
     $closeBt.off("click");
     $modal.addClass("hidden");
