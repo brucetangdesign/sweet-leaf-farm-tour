@@ -6,7 +6,7 @@ $tourStops = array(
     'city' => 'Cincinnati, OH',
     'date' => 'June 8',
     'date-code' => '2019-06-08',
-    'ticket-link' => 'https://www1.ticketmaster.com/luke-bryan-sunset-repeat-tour-2019/event/16005685B79A357B'),
+    'ticket-link' => ''),
   array(
     'id' => 'foxborough-ma',
     'map-coords' => 'left: 94%; top: 20%',
