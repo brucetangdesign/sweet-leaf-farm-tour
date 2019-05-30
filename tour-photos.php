@@ -1,6 +1,6 @@
 <!doctype html>
 <section id="tour-photos" class="slide-main">
-  <div class="tour-photos-side-orange rellax" data-rellax-speed="2"></div>
+  <div class="tour-photos-side-orange rellax" data-rellax-speed="-3"></div>
   <div class="tour-photos-main">
     <h2>Tour Photos</h2>
     <div class="photos">

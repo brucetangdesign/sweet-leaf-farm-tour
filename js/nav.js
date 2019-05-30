@@ -21,6 +21,13 @@ $( document ).ready(function() {
       }
   });
 
+  $("header .logo-img").click(function(e){
+    if($("body").attr("id") == "home-page"){
+      e.preventDefault();
+      scrollToSection($("body"),500);
+    }
+  });
+
   //smooth scroll for anchor links
   function scrollToSection($section, time=1000){
     $("html, body").animate({ scrollTop:$section.position().top - $("header").height() - 50  },time);
@@ -49,8 +56,6 @@ $( document ).ready(function() {
         if(scrolled){
           $header.removeClass("scrolled");
           scrolled = false;
-          TweenMax.set($logo,{clearProps:"all",delay: 0.1});
-          TweenMax.from($logo,0.3,{opacity: 0, delay: 0.1});
         }
       }
   }

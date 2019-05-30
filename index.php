@@ -295,7 +295,7 @@ include 'tour-info.php';
       <div class="about-products-main">
         <h2>Our famous 100% organic tea recipes for y’all and all y'alls taste.</h2>
         <p class="subtitle">Made from simple ingredients and a whole lotta love. Original Sweet Teas, Semisweet Teas and Unsweet Teas in different flavors to enjoy.</p>
-        <a class="button" href="#" name="link to gallery">See All Flavors</a>
+        <a class="button" href="https://www.sweetleaftea.com/products/" target="_blank" name="link to gallery">See All Flavors</a>
         <div class="about-products-main-image"></div>
         <div class="center"></div>
       </div>
