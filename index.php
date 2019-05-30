@@ -98,9 +98,12 @@ include 'tour-info.php';
       <div class="cactus reverse"></div>
       <div class="center"></div>
       <div class="slide-content">
+        <h2 class="visible-680 tour-header-mobile">Tour Stops</h2>
         <div class="slide-image-container">
           <div class="slide-image tour-map">
+            <div class="center"></div>
             <img src="images/tour-map.svg" />
+            <div class="stars">
             <?php
               //Place Stars on map
               //Farm Stops
@@ -123,25 +126,38 @@ include 'tour-info.php';
                   echo "data-date='".$row['date']."' ";
 
                   //Get all map photos images
-                  echo "data-imgs='";
                   $directory = "images/map-photos";
                   $images = glob($directory . "/*.jpg");
                   $searchString = $row['id'];
-
+                  $hits = array();
                   foreach($images as $image)
                   {
                       // determines if the search string is in the filename.
                       if(strpos(strtolower($image), strtolower($searchString))) {
-                           echo $image." ";
+                           $hits[] = $image;
                       }
                   }
-                  echo "'";
+
+                  //Store image urls in data-imgs
+                  if(count($hits) > 0){
+                    $k = 0;
+                    echo "data-imgs='";
+                    foreach($hits as $hit){
+                      echo $hit;
+                      if($k < count($hits)-1){
+                        echo " ";
+                      }
+                      $k++;
+                    }
+                    echo "'";
+                  }
 
 
                 echo "></div>";
               }
 
             ?>
+            </div>
           </div>
           <div id="map-key" class="hidden-680">
             <div><span class="tour-star farm-stop"></span>Farm Tour Stops</div>
@@ -155,9 +171,17 @@ include 'tour-info.php';
               <a class="button view-bt" a href="#">View</a>
             </div>
             <div class="location-images">
-              <div class="img1"><img src="" /><div class="loading-spinner"></div></div>
-              <div class="img2"><img src="" /><div class="loading-spinner"></div></div>
-              <div class="img3"><img src="" /><div class="loading-spinner"></div></div>
+              <div class="img1 hidden"><div class="loading-spinner"></div><img class="opacity-0" src="" /></div>
+              <div class="img2 hidden"><div class="loading-spinner"></div><img class="opacity-0" src="" /></div>
+              <div class="img3 hidden"><div class="loading-spinner"></div><img class="opacity-0" src="" /></div>
+            </div>
+            <div class="mobile-controls">
+              <div class="control previous">
+                <div class="arrow"></div>
+              </div>
+              <div class="control next">
+                <div class="arrow"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -278,31 +302,7 @@ include 'tour-info.php';
     </section>
 
     <!-- Tour Photos -->
-    <section id="tour-photos" class="slide-main">
-      <div class="tour-photos-side-orange rellax" data-rellax-speed="-3"></div>
-      <div class="tour-photos-main">
-        <h2>Tour Photos</h2>
-        <div class="photos">
-          <div>
-            <a href="#">
-              <img src="images/tour-photo-1.jpg"  srcset="images/tour-photo-1.jpg 1x, images/tour-photo-1@2x.jpg 2x" alt="tour photo"/>
-            </a>
-          </div>
-          <div>
-            <a href="#">
-              <img src="images/tour-photo-2.jpg"  srcset="images/tour-photo-2.jpg 1x, images/tour-photo-2@2x.jpg 2x" alt="tour photo"/>
-            </a>
-          </div>
-          <div>
-            <a href="#">
-              <img src="images/tour-photo-3.jpg"  srcset="images/tour-photo-3.jpg 1x, images/tour-photo-3@2x.jpg 2x" alt="tour photo"/>
-            </a>
-          </div>
-        </div>
-        <a class="button" href="#" name="link to gallery">View All</a>
-        <div class="center"></div>
-      </div>
-    </section>
+    <?php include 'tour-photos.php'; ?>
 
     <?php include 'footer.php'; ?>
   </body>
