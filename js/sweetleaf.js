@@ -151,7 +151,7 @@ $( document ).ready(function() {
     var $farmDates = $(".schedule-content.farm-dates");
     var $otherDates = $(".schedule-content.other-dates");
 
-    $(".schedule-body div").each(function(){
+    $(".schedule-body div, .tour-table").each(function(){
       $(this).height("auto");
     });
   }

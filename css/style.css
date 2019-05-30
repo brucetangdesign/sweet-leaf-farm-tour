@@ -900,6 +900,9 @@ ul.feature-hashtags {
       height: 23.5333333333vw;
       min-height: 11.03125rem;
       max-height: 22.0625rem; }
+      @media (max-width: 680px) {
+        #feature.slide-main .slide-copy .feature-logo-glow, #feature .slide-copy .feature-logo-glow {
+          top: -20px; } }
     #feature.slide-main .slide-copy .feature-logo, #feature .slide-copy .feature-logo {
       width: 26.6666666667vw;
       min-width: 12.5rem;

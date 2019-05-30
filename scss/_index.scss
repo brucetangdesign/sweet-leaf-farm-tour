@@ -405,6 +405,10 @@ ul.feature-hashtags{
       background-repeat: no-repeat;
       background-size: cover;
       @include size-to-screen-width(370,353,0.5,1500px);
+
+      @include breakpoint(xs-680){
+        top: -20px;
+      }
     }
 
     .feature-logo{
