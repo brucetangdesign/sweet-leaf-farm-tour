@@ -6,7 +6,7 @@ $( document ).ready(function() {
   //smooth scroll to anchor link (this moves section down a bit so it doesn't overlap with header)
   if (location.hash) {
     setTimeout(function() {
-      scrollToSection($(location.hash));
+      scrollToSection($(location.hash),1000);
     }, 1);
   }
 
@@ -14,8 +14,16 @@ $( document ).ready(function() {
   $("nav li > a").each(function(index){
       if($(this).attr("href").indexOf("#") == 0){
         $(this).click(function(e){
+          var offset = $(this).data("anchor-offset");
+
           e.preventDefault();
-          history.pushState(null,null,$(this).attr("href"));
+          if($(this).attr("href") != "#tour-photos"){
+              history.pushState(null,null,$(this).attr("href"));
+          }
+          else{
+            history.pushState(null,null," ");
+          }
+
           scrollToSection($($(this).attr("href")),700);
         });
       }

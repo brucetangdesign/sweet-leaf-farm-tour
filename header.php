@@ -13,6 +13,7 @@
   </div>
   <nav>
     <ul class="hr-list">
+      <li><a href="#tour-photos">Gallery</a></li>
       <li><a href="#tour-stops">Tour</a></li>
       <li><a href="https://www.sweetleaftea.com/" target="_blank">Sweetleaf.com</a></li>
     </ul>

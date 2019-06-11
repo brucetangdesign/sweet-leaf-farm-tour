@@ -118,6 +118,7 @@ nav{
     color: #FFFFFF;
     text-decoration: none;
     text-transform: uppercase;
+
     cursor: pointer;
 
     transition: all 200ms;
@@ -125,6 +126,7 @@ nav{
 
     &:hover, &.selected{
       opacity: 0.6;
+      text-decoration: none;
 
       transition: all 200ms;
       -webkit-transition: all 200ms;
