@@ -1,12 +1,12 @@
 <!doctype html>
 <?php
 $tourPhotos =  array(
-  array('location' => 'Cincinnati, OH',
-        'href' => 'https://www.simplebooth.com/gallery/Vjg9U4nccdf8-sweet-for-luke-cincinnati',
-        'imgSrc' => 'tour-photo-cincinnati-oh.jpg'),
   array('location' => 'Nashville, TN',
         'href' => 'https://www.simplebooth.com/gallery/2cAt4ALUM8f6-hanging-out-with-sweet-leaf-tea-cma-fest-the-george-jones-nashville',
-        'imgSrc' => 'tour-photo-nashville-tn.jpg')
+        'imgSrc' => 'tour-photo-nashville-tn.jpg'),
+  array('location' => 'Cincinnati, OH',
+        'href' => 'https://www.simplebooth.com/gallery/Vjg9U4nccdf8-sweet-for-luke-cincinnati',
+        'imgSrc' => 'tour-photo-cincinnati-oh.jpg')
 );
 ?>
 
