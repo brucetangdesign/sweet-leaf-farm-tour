@@ -243,7 +243,11 @@ include 'tour-info.php';
                           echo "<span class='date'>".$row['date']."</span>";
                           echo "<p>".$row['city']." / ".$row['farm'];
                             if(strlen($row['ticket-link']) > 0){
+<<<<<<< HEAD
                               echo " / <a href='".$row['ticket-link']."' target='_blank'>Get Tickets</a>";
+=======
+                              echo " / <a href='".$row['ticket-link']."'>Get Tickets</a>";
+>>>>>>> ae60792235db900ae8a279f4cfdbc0ed9ffe59a9
                             }
                           echo "</p>";
                         echo "</div>";
@@ -275,7 +279,11 @@ include 'tour-info.php';
                           echo "<span class='date'>".$row['date']."</span>";
                           echo "<p>".$row['city'];
                             if(strlen($row['ticket-link']) > 0){
+<<<<<<< HEAD
                               echo " / <a href='".$row['ticket-link']."' target='_blank'>Get Tickets</a>";
+=======
+                              echo " / <a href='".$row['ticket-link']."'>Get Tickets</a>";
+>>>>>>> ae60792235db900ae8a279f4cfdbc0ed9ffe59a9
                             }
                           echo "</p>";
                         echo "</div>";
@@ -301,6 +309,42 @@ include 'tour-info.php';
       </div>
     </section>
 
+<<<<<<< HEAD
+=======
+    <!-- Retailers -->
+    <section id="retailers" class="slide-main">
+      <div class="retailer-content">
+        <p>Find Sweet Leaf Tea at the following retailers:</p>
+        <div class="retailer-logos">
+          <?php
+            //Get all retailer images
+            $directory = "images/retailers";
+            $images = glob($directory . "/*.png");
+
+            foreach($images as $image)
+            {
+              echo "<div>";
+                echo "<img src='".$image."' alt='retailer logo' />";
+              echo "</div>";
+            }
+          ?>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sweet Leaf Product Info -->
+    <section id="about-products" class="slide-main">
+      <div class="product-side-lemon rellax" data-rellax-speed="3"></div>
+      <div class="product-side-honey rellax" data-rellax-speed="-1"></div>
+      <div class="about-products-main">
+        <h2>Our famous 100% organic tea recipes for y’all and all y'alls taste.</h2>
+        <p class="subtitle">Made from simple ingredients and a whole lotta love. Original Sweet Teas, Semisweet Teas and Unsweet Teas in different flavors to enjoy.</p>
+        <a class="button" href="https://www.sweetleaftea.com/products/" target="_blank" name="link to gallery">See All Flavors</a>
+        <div class="about-products-main-image"></div>
+        <div class="center"></div>
+      </div>
+    </section>
+>>>>>>> ae60792235db900ae8a279f4cfdbc0ed9ffe59a9
 
     <!-- Tour Photos -->
     <?php include 'tour-photos.php'; ?>
