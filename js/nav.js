@@ -4,11 +4,11 @@ $( document ).ready(function() {
   var $logo = $header.find(".logo-container");
 
   //smooth scroll to anchor link (this moves section down a bit so it doesn't overlap with header)
-  if (location.hash) {
+  /*if (location.hash) {
     setTimeout(function() {
       scrollToSection($(location.hash),1000);
     }, 1);
-  }
+  }*/
 
   //handle anchor links
   $("nav li > a").each(function(index){
@@ -17,12 +17,12 @@ $( document ).ready(function() {
           var offset = $(this).data("anchor-offset");
 
           e.preventDefault();
-          if($(this).attr("href") != "#tour-photos"){
+          /*if($(this).attr("href") != "#tour-photos"){
               history.pushState(null,null,$(this).attr("href"));
           }
           else{
             history.pushState(null,null," ");
-          }
+          }*/
 
           scrollToSection($($(this).attr("href")),700);
         });
