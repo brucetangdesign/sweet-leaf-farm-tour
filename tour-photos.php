@@ -25,30 +25,13 @@ $tourPhotos =  array(
           echo "<div>";
             echo "<a class='tour-photo' href='".$row['href']."' target='_blank'>";
               echo "<img src='images/tour-photos/".$row['imgSrc']."' ";
-              echo "srcset='images/tour-photos/".$row['imgSrc']." 1x, images/tour-photos/'".$img2x." 2x' ";
+              echo "srcset='images/tour-photos/".$row['imgSrc']." 1x, images/tour-photos/".$img2x." 2x' ";
               echo "alt='tour-photo' />";
             echo "</a>";
             echo "<a href='".$row['href']."' target='_blank'>".$row['location']."</a>";
           echo "</div>";
         }
       ?>
-        <!--
-      <div>
-        <a href="https://www.simplebooth.com/gallery/Vjg9U4nccdf8-sweet-for-luke-cincinnati" target="_blank">
-          <img src="images/tour-photo-1.jpg"  srcset="images/tour-photo-1.jpg 1x, images/tour-photo-1@2x.jpg 2x" alt="tour photo"/>
-        </a>
-      </div>
-      <div>
-        <a href="https://www.simplebooth.com/gallery/Vjg9U4nccdf8-sweet-for-luke-cincinnati" target="_blank">
-          <img src="images/tour-photo-2.jpg"  srcset="images/tour-photo-2.jpg 1x, images/tour-photo-2@2x.jpg 2x" alt="tour photo"/>
-        </a>
-      </div>
-      <div>
-        <a href="https://www.simplebooth.com/gallery/Vjg9U4nccdf8-sweet-for-luke-cincinnati" target="_blank">
-          <img src="images/tour-photo-3.jpg"  srcset="images/tour-photo-3.jpg 1x, images/tour-photo-3@2x.jpg 2x" alt="tour photo"/>
-        </a>
-      </div>
-    -->
     </div>
   </div>
 </section>
