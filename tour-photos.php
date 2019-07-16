@@ -6,6 +6,12 @@ $tourPhotos =  array(
         'imgSrc' => 'tour-photo-nashville-tn.jpg'),
   array('location' => 'Cincinnati, OH',
         'href' => 'https://www.simplebooth.com/gallery/Vjg9U4nccdf8-sweet-for-luke-cincinnati',
+        'imgSrc' => 'tour-photo-cincinnati-oh.jpg'),
+  array('location' => 'Cincinnati, OH',
+        'href' => 'https://www.simplebooth.com/gallery/Vjg9U4nccdf8-sweet-for-luke-cincinnati',
+        'imgSrc' => 'tour-photo-cincinnati-oh.jpg'),
+  array('location' => 'Cincinnati, OH',
+        'href' => 'https://www.simplebooth.com/gallery/Vjg9U4nccdf8-sweet-for-luke-cincinnati',
         'imgSrc' => 'tour-photo-cincinnati-oh.jpg')
 );
 ?>

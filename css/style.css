@@ -2455,6 +2455,9 @@ ul.feature-hashtags li:last-of-type {
 }
 #tour-photos.slide-main .photos {
   margin-top: 3.125rem;
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
   -webkit-display: flex;
   -moz-display: flex;
   -ms-display: flex;
