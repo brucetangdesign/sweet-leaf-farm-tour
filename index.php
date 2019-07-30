@@ -90,6 +90,24 @@ include 'tour-info.php';
       </div>
     </section>
 
+    <!-- Sweepstakes -->
+    <section id="sweepstakes" class="slide-main">
+      <div class="bg-stars rellax" data-rellax-speed="-2" data-rellax-percentage="0.5"></div>
+      <div class="bg-prizes"></div>
+      <div class="sweeps-bottle-original rellax" data-rellax-speed="3"></div>
+      <div class="sweeps-bottle-mint-honey rellax" data-rellax-speed="-1"></div>
+      <div class="sweepstakes-main">
+        <div class="sweepstakes-text"></div>
+        <a class="button" href="https://www.sweetleaftea.com/products/" target="_blank" name="link to gallery">Enter Now</a>
+      </div>
+      <div class="center"></div>
+      <p class="sweepstakes-detail">
+        For SWEETstakes, no purchase necessary. Ends 10/25/19.
+        <br>
+        See <a href="https://www.activaterewards.com/SweetLeafTea" target="_blank">www.activaterewards.com/SweetLeafTea</a> for details and how to enter the sweepstakes.
+      </p>
+    </section>
+
     <!-- Sweet Leaf Product Info -->
     <section id="about-products" class="slide-main">
       <div class="product-side-lemon rellax" data-rellax-speed="3"></div>

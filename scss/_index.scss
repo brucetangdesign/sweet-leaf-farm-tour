@@ -319,14 +319,14 @@ ul.feature-hashtags{
 #feature.slide-main, #feature{
   height: auto;
   padding-top: 150px;
-  margin-bottom: 8rem;
+  margin-bottom: 0 !important;
 
   @include breakpoint(m-s){
-    margin-bottom: 5rem;
+    //margin-bottom: 5rem;
   }
 
   @include breakpoint(xs-680){
-    margin-bottom: 1rem;
+    //margin-bottom: 1rem;
     padding-top: 80px;
   }
 
@@ -1326,6 +1326,126 @@ $tour-star-path: "%3Cpath class='st0' d='M10.2,3.7c-0.1-0.2-0.3-0.4-0.6-0.4l-3,0
   img{
     width: 100%;
     max-width: 250px;
+  }
+}
+
+#sweepstakes.slide-main{
+  display: block;
+  width: 100%;
+  margin-left: auto;
+  height: auto;
+  text-align: center;
+
+  @include breakpoint(m-up){
+    padding-bottom: 11rem;
+  }
+
+  @include breakpoint(m){
+    padding-bottom: 6.5rem;
+  }
+
+  @include breakpoint(xs-680){
+    padding-bottom: 0;
+  }
+
+  .sweepstakes-text{
+    margin-left: auto;
+    margin-right: auto;
+    background-image: url("../images/sweepstakes-text.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    @include size-to-screen-width(858,482,0.5,1200px);
+  }
+
+  .sweepstakes-main{
+    position: relative;
+    padding-top: 378px;
+
+    a.button{
+      width: fit-content;
+      position: absolute;
+      bottom: 163px;
+      left: 0;
+      right: 0;
+      margin: auto;
+
+      @include breakpoint(m){
+        bottom: 14vw;
+      }
+    }
+
+    @include breakpoint(m-l){
+      padding-top: 24vw;
+    }
+  }
+
+  .sweepstakes-detail{
+    margin-top: 0;
+    font-size: 16px;
+    line-height: 1.3;
+  }
+
+  .bg-stars{
+    position: absolute;
+    width: 100%;
+    background-image: url("../images/sweepstakes-stars-bg.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin: auto;
+    left: 0;
+    right: 0;
+    @include size-to-screen-width(1513,742);
+  }
+
+  .sweeps-bottle-original{
+    position: absolute;
+    left: 0;
+    top: 39%;
+    @include background-2x( '../images/sweepstakes-bottle-original', 'png', contain, auto, center center, no-repeat );
+    background-size: contain !important;
+    @include size-to-screen-width(238,505,0,1900px);
+
+    @media (max-width: 1750px){
+      left: -100px;
+    }
+
+    @include breakpoint(m){
+      display: none;
+    }
+  }
+
+  .sweeps-bottle-mint-honey{
+    position: absolute;
+    right: 0;
+    top: 65%;
+    @include background-2x( '../images/sweepstakes-bottle-mint-honey', 'png', contain, auto, center center, no-repeat );
+    @include size-to-screen-width(225,525,0,1900px);
+
+    @media (max-width: 1750px){
+      right: -70px;
+    }
+
+    @include breakpoint(m){
+      display: none;
+    }
+  }
+
+  .bg-prizes{
+    position: absolute;
+    width: 100%;
+    height: 100% !important;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    @include background-2x( '../images/sweepstakes-prizes', 'png', contain, auto, center center, no-repeat );
+    @include size-to-screen-width(1286,976,0,1500px);
+
+    @include breakpoint(m-l){
+      background-position: center top;
+    }
   }
 }
 

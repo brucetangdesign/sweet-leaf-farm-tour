@@ -1001,16 +1001,10 @@ ul.feature-hashtags li:last-of-type {
 #feature.slide-main, #feature {
   height: auto;
   padding-top: 150px;
-  margin-bottom: 8rem;
-}
-@media (max-width: 960px) {
-  #feature.slide-main, #feature {
-    margin-bottom: 5rem;
-  }
+  margin-bottom: 0 !important;
 }
 @media (max-width: 680px) {
   #feature.slide-main, #feature {
-    margin-bottom: 1rem;
     padding-top: 80px;
   }
 }
@@ -2161,6 +2155,180 @@ ul.feature-hashtags li:last-of-type {
 .retailer-logos img {
   width: 100%;
   max-width: 250px;
+}
+
+#sweepstakes.slide-main {
+  display: block;
+  width: 100%;
+  margin-left: auto;
+  height: auto;
+  text-align: center;
+}
+@media (min-width: 1021px) {
+  #sweepstakes.slide-main {
+    padding-bottom: 11rem;
+  }
+}
+@media (max-width: 1020px) {
+  #sweepstakes.slide-main {
+    padding-bottom: 6.5rem;
+  }
+}
+@media (max-width: 680px) {
+  #sweepstakes.slide-main {
+    padding-bottom: 0;
+  }
+}
+#sweepstakes.slide-main .sweepstakes-text {
+  margin-left: auto;
+  margin-right: auto;
+  background-image: url("../images/sweepstakes-text.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  width: 71.5vw;
+  min-width: 26.8125rem;
+  max-width: 53.625rem;
+  height: 40.1666666667vw;
+  min-height: 15.0625rem;
+  max-height: 30.125rem;
+}
+#sweepstakes.slide-main .sweepstakes-main {
+  position: relative;
+  padding-top: 378px;
+}
+#sweepstakes.slide-main .sweepstakes-main a.button {
+  width: fit-content;
+  position: absolute;
+  bottom: 163px;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+@media (max-width: 1020px) {
+  #sweepstakes.slide-main .sweepstakes-main a.button {
+    bottom: 14vw;
+  }
+}
+@media (max-width: 1188px) {
+  #sweepstakes.slide-main .sweepstakes-main {
+    padding-top: 24vw;
+  }
+}
+#sweepstakes.slide-main .sweepstakes-detail {
+  margin-top: 0;
+  font-size: 16px;
+  line-height: 1.3;
+}
+#sweepstakes.slide-main .bg-stars {
+  position: absolute;
+  width: 100%;
+  background-image: url("../images/sweepstakes-stars-bg.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  margin: auto;
+  left: 0;
+  right: 0;
+  width: 78.8020833333vw;
+  min-width: 9.45625rem;
+  max-width: 94.5625rem;
+  height: 38.6458333333vw;
+  min-height: 4.6375rem;
+  max-height: 46.375rem;
+}
+#sweepstakes.slide-main .sweeps-bottle-original {
+  position: absolute;
+  left: 0;
+  top: 39%;
+  background-image: url("../images/sweepstakes-bottle-original.png");
+  background-size: contain auto;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain !important;
+  width: 12.5263157895vw;
+  min-width: 0rem;
+  max-width: 14.875rem;
+  height: 26.5789473684vw;
+  min-height: 0rem;
+  max-height: 31.5625rem;
+}
+@media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+  #sweepstakes.slide-main .sweeps-bottle-original {
+    background-image: url("../images/sweepstakes-bottle-original@2x.png");
+  }
+}
+@media (max-width: 1750px) {
+  #sweepstakes.slide-main .sweeps-bottle-original {
+    left: -100px;
+  }
+}
+@media (max-width: 1020px) {
+  #sweepstakes.slide-main .sweeps-bottle-original {
+    display: none;
+  }
+}
+#sweepstakes.slide-main .sweeps-bottle-mint-honey {
+  position: absolute;
+  right: 0;
+  top: 65%;
+  background-image: url("../images/sweepstakes-bottle-mint-honey.png");
+  background-size: contain auto;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 11.8421052632vw;
+  min-width: 0rem;
+  max-width: 14.0625rem;
+  height: 27.6315789474vw;
+  min-height: 0rem;
+  max-height: 32.8125rem;
+}
+@media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+  #sweepstakes.slide-main .sweeps-bottle-mint-honey {
+    background-image: url("../images/sweepstakes-bottle-mint-honey@2x.png");
+  }
+}
+@media (max-width: 1750px) {
+  #sweepstakes.slide-main .sweeps-bottle-mint-honey {
+    right: -70px;
+  }
+}
+@media (max-width: 1020px) {
+  #sweepstakes.slide-main .sweeps-bottle-mint-honey {
+    display: none;
+  }
+}
+#sweepstakes.slide-main .bg-prizes {
+  position: absolute;
+  width: 100%;
+  height: 100% !important;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: url("../images/sweepstakes-prizes.png");
+  background-size: contain auto;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 85.7333333333vw;
+  min-width: 0rem;
+  max-width: 80.375rem;
+  height: 65.0666666667vw;
+  min-height: 0rem;
+  max-height: 61rem;
+}
+@media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+  #sweepstakes.slide-main .bg-prizes {
+    background-image: url("../images/sweepstakes-prizes@2x.png");
+  }
+}
+@media (max-width: 1188px) {
+  #sweepstakes.slide-main .bg-prizes {
+    background-position: center top;
+  }
 }
 
 #about-products.slide-main {
