@@ -11,18 +11,12 @@ $( document ).ready(function() {
   }*/
 
   //handle anchor links
-  $("nav li > a").each(function(index){
-      if($(this).attr("href").indexOf("#") == 0){
+  $("a").each(function(index){
+      if($(this).attr("href").indexOf("#") == 0 && $(this).attr("href").length > 1){
         $(this).click(function(e){
           var offset = $(this).data("anchor-offset");
 
           e.preventDefault();
-          /*if($(this).attr("href") != "#tour-photos"){
-              history.pushState(null,null,$(this).attr("href"));
-          }
-          else{
-            history.pushState(null,null," ");
-          }*/
 
           scrollToSection($($(this).attr("href")),700);
         });

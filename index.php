@@ -75,16 +75,8 @@ include 'tour-info.php';
           <h4>Official Tea Sponsor of Luke Bryan Farm Tour 2019</h4>
           <p class="subtitle">Join Sweet Leaf Tea as we go cross-country spreading all types of sweetness during the Luke Bryan 2019 tour dates! Bring a friend to our photo booths, enter to win some sweet prizes, and taste the sweet Austin goodness that is Mimi's original organic teas!</p>
           <div class="location-box">
-            <p class="location-info">Our Next Stop:</p>
-            <p class="location-city">
-              <?php
-              foreach ($tourStops as $i => $row){
-                if(isset($row['closest-date'])){
-                  echo $row['city'];
-                }
-              }
-              ?>
-            </p>
+            <p class="location-info">Two sweet<br>chances to win!</p>
+            <a class="button" href="#sweepstakes" name="link to sweepstakes section">Learn More</a>
           </div>
         </div>
       </div>
@@ -92,13 +84,17 @@ include 'tour-info.php';
 
     <!-- Sweepstakes -->
     <section id="sweepstakes" class="slide-main">
-      <div class="bg-stars rellax" data-rellax-speed="-2" data-rellax-percentage="0.5"></div>
-      <div class="bg-prizes"></div>
+      <div class="bg-stars rellax" data-rellax-speed="-1" data-rellax-percentage="0.5"></div>
+      <div data-text="Two sweet chances to win!" class="bg-prizes">
+        <h2 data-text="Two sweet chances to win!" class="sweepstakes-headline-mobile">Two sweet chances to win!</h2>
+      </div>
       <div class="sweeps-bottle-original rellax" data-rellax-speed="3"></div>
       <div class="sweeps-bottle-mint-honey rellax" data-rellax-speed="-1"></div>
       <div class="sweepstakes-main">
-        <div class="sweepstakes-text"></div>
-        <a class="button" href="https://www.sweetleaftea.com/products/" target="_blank" name="link to gallery">Enter Now</a>
+        <div class="sweepstakes-text">
+          <h2 class="sweepstakes-subtitle-mobile">Redeem your $10 Sweet Bucks Gift Card and Enter our SWEETstakes!</h2>
+        </div>
+        <a class="button" href="https://www.activaterewards.com/SweetLeafTea" target="_blank" name="link to sweeps page">Enter Now</a>
       </div>
       <div class="center"></div>
       <p class="sweepstakes-detail">

@@ -478,6 +478,21 @@ ul.feature-hashtags{
   }
 }
 
+.slide-copy .location-box{
+  max-width: 304px;
+  padding-top: 17px;
+  padding-bottom: 17px;
+
+  .location-info{
+    font-size: getRem(28px);
+    line-height: 1;
+  }
+
+  a.button{
+    margin-top: getRem(13px);
+  }
+}
+
 #tour-stops{
   background: url("../images/bg-tour-stops.png");
   background-size: contain;
@@ -1346,16 +1361,7 @@ $tour-star-path: "%3Cpath class='st0' d='M10.2,3.7c-0.1-0.2-0.3-0.4-0.6-0.4l-3,0
 
   @include breakpoint(xs-680){
     padding-bottom: 0;
-  }
-
-  .sweepstakes-text{
-    margin-left: auto;
-    margin-right: auto;
-    background-image: url("../images/sweepstakes-text.svg");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    @include size-to-screen-width(967,482,0.5,1200px);
+    padding-top: 0;
   }
 
   .sweepstakes-main{
@@ -1363,12 +1369,18 @@ $tour-star-path: "%3Cpath class='st0' d='M10.2,3.7c-0.1-0.2-0.3-0.4-0.6-0.4l-3,0
     padding-top: 378px;
 
     a.button{
-      width: fit-content;
-      position: absolute;
-      bottom: 163px;
-      left: 0;
-      right: 0;
-      margin: auto;
+      @media (max-width: 540px){
+        margin-bottom: 30px;
+      }
+
+      @media (min-width: 541px){
+        width: fit-content;
+        position: absolute;
+        bottom: 163px;
+        left: 0;
+        right: 0;
+        margin: auto;
+      }
 
       @include breakpoint(m){
         bottom: 14vw;
@@ -1377,6 +1389,35 @@ $tour-star-path: "%3Cpath class='st0' d='M10.2,3.7c-0.1-0.2-0.3-0.4-0.6-0.4l-3,0
 
     @include breakpoint(m-l){
       padding-top: 24vw;
+    }
+
+    @include breakpoint(m-s){
+      padding-top: 27vw;
+    }
+
+    @media (max-width: 540px){
+      padding-top: 0;
+    }
+  }
+
+  .sweepstakes-text{
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (min-width: 541px){
+      background-image: url("../images/sweepstakes-text.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      @include size-to-screen-width(967,482,0.5,1200px);
+
+      .sweepstakes-subtitle-mobile{
+        display: none;
+      }
+    }
+
+    .sweepstakes-subtitle-mobile{
+      margin-bottom: 36px;
     }
   }
 
@@ -1397,6 +1438,14 @@ $tour-star-path: "%3Cpath class='st0' d='M10.2,3.7c-0.1-0.2-0.3-0.4-0.6-0.4l-3,0
     left: 0;
     right: 0;
     @include size-to-screen-width(1513,742);
+
+    @media (max-width: 540px){
+      max-width: 100%;
+      max-height: 100%;
+      height: 100%;
+      width: 98%;
+      background-position-y: top;
+    }
   }
 
   .sweeps-bottle-original{
@@ -1435,7 +1484,6 @@ $tour-star-path: "%3Cpath class='st0' d='M10.2,3.7c-0.1-0.2-0.3-0.4-0.6-0.4l-3,0
   .bg-prizes{
     position: absolute;
     width: 100%;
-    height: 100% !important;
     left: 0;
     right: 0;
     margin-left: auto;
@@ -1445,6 +1493,93 @@ $tour-star-path: "%3Cpath class='st0' d='M10.2,3.7c-0.1-0.2-0.3-0.4-0.6-0.4l-3,0
 
     @include breakpoint(m-l){
       background-position: center top;
+    }
+
+    @include breakpoint (m-s){
+      @include background-2x( '../images/sweepstakes-prizes-tablet', 'png', contain, auto, center 35px, no-repeat );
+      max-width: 768px;
+    }
+
+    @media (min-width: 541px){
+      height: 100% !important;
+    }
+
+    @media (max-width: 540px){
+      position: relative;
+      @include background-2x( '../images/sweepstakes-prizes-mobile', 'png', contain, auto, center top, no-repeat );
+      @include size-to-screen-width(361,308,0,361px);
+
+      &:before, &:after{
+        content: attr(data-text);
+        max-width: 300px;
+        color: #FFFFFF;
+        -webkit-text-stroke: 4px #FFFFFF;
+      }
+
+      &:before{
+        left: 2px;
+      }
+
+      &:after{
+        left: -2px;
+      }
+    }
+
+    @include breakpoint(xs){
+      &:after, &:before{ max-width: 250px; }
+    }
+
+    &:before, &:after{
+      @extend .h1;
+      position: absolute;
+      margin: auto;
+      right: 0;
+      top: 66%;
+      transform: translateY(-50%);
+    }
+  }
+
+  .sweepstakes-headline-mobile{
+    position: absolute;
+    @extend .h1;
+    color: $sl-red;
+    max-width: 300px;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 66%;
+    transform: translateY(-50%);
+    z-index: 1;
+
+    @media (min-width: 540px){
+      display: none;
+    }
+
+    &:before, &:after{
+      content: attr(data-text);
+      max-width: 300px;
+      position: absolute;
+      top: 1px;
+      left: 0;
+      right: 0;
+      margin: auto;
+      color: #FFFFFF;
+      -webkit-text-stroke: 4px #FFFFFF;
+      z-index: -1;
+    }
+
+    &:before{
+      top: -1px;
+    }
+
+    &:after{
+      top: 1px;
+    }
+
+    @include breakpoint(xs){
+      max-width: 250px;
+
+      &:after, &:before { max-width: 250px; }
     }
   }
 }
