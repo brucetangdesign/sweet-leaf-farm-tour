@@ -2196,6 +2196,10 @@ ul.feature-hashtags li:last-of-type {
 #sweepstakes.slide-main .sweepstakes-main {
   position: relative;
   padding-top: 378px;
+  pointer-events: none;
+}
+#sweepstakes.slide-main .sweepstakes-main a.button {
+  pointer-events: all;
 }
 @media (max-width: 540px) {
   #sweepstakes.slide-main .sweepstakes-main a.button {
@@ -2235,6 +2239,7 @@ ul.feature-hashtags li:last-of-type {
 #sweepstakes.slide-main .sweepstakes-text {
   margin-left: auto;
   margin-right: auto;
+  pointer-events: all;
 }
 @media (min-width: 541px) {
   #sweepstakes.slide-main .sweepstakes-text {
@@ -2351,6 +2356,7 @@ ul.feature-hashtags li:last-of-type {
   }
 }
 #sweepstakes.slide-main .bg-prizes {
+  display: block;
   position: absolute;
   width: 100%;
   left: 0;

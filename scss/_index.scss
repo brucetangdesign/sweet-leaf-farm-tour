@@ -1367,8 +1367,11 @@ $tour-star-path: "%3Cpath class='st0' d='M10.2,3.7c-0.1-0.2-0.3-0.4-0.6-0.4l-3,0
   .sweepstakes-main{
     position: relative;
     padding-top: 378px;
+    pointer-events: none;
 
     a.button{
+      pointer-events: all;
+
       @media (max-width: 540px){
         margin-bottom: 30px;
       }
@@ -1403,6 +1406,7 @@ $tour-star-path: "%3Cpath class='st0' d='M10.2,3.7c-0.1-0.2-0.3-0.4-0.6-0.4l-3,0
   .sweepstakes-text{
     margin-left: auto;
     margin-right: auto;
+    pointer-events: all;
 
     @media (min-width: 541px){
       background-image: url("../images/sweepstakes-text.svg");
@@ -1482,6 +1486,7 @@ $tour-star-path: "%3Cpath class='st0' d='M10.2,3.7c-0.1-0.2-0.3-0.4-0.6-0.4l-3,0
   }
 
   .bg-prizes{
+    display: block;
     position: absolute;
     width: 100%;
     left: 0;

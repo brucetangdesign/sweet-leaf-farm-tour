@@ -85,9 +85,9 @@ include 'tour-info.php';
     <!-- Sweepstakes -->
     <section id="sweepstakes" class="slide-main">
       <div class="bg-stars rellax" data-rellax-speed="-1" data-rellax-percentage="0.5"></div>
-      <div data-text="Two sweet chances to win!" class="bg-prizes">
+      <a href="https://www.activaterewards.com/SweetLeafTea" target="_blank" name="link to sweeps page" data-text="Two sweet chances to win!" class="bg-prizes">
         <h2 data-text="Two sweet chances to win!" class="sweepstakes-headline-mobile">Two sweet chances to win!</h2>
-      </div>
+      </a>
       <div class="sweeps-bottle-original rellax" data-rellax-speed="3"></div>
       <div class="sweeps-bottle-mint-honey rellax" data-rellax-speed="-1"></div>
       <div class="sweepstakes-main">
