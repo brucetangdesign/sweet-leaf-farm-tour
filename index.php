@@ -92,7 +92,7 @@ include 'tour-info.php';
       <div class="sweeps-bottle-mint-honey rellax" data-rellax-speed="-1"></div>
       <div class="sweepstakes-main">
         <div class="sweepstakes-text">
-          <h2 class="sweepstakes-subtitle-mobile">Redeem your $10 Sweet Bucks Gift Card and Enter our SWEETstakes!</h2>
+          <h2 class="sweepstakes-subtitle-mobile">Redeem your Sweet $10 Rewards and Enter our SWEETstakes!</h2>
         </div>
         <a class="button" href="https://www.activaterewards.com/SweetLeafTea" target="_blank" name="link to sweeps page">Enter Now</a>
       </div>
